@@ -95,4 +95,24 @@
     .menu {
         gap: var(--espacio-medio);
     }
+.footer {
+    padding: 2rem 2rem 1.5rem;
+  background: #E3F6F5;
+  color: black;
+  text-align: center;
+ 
+}
+
+.footer nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem 2rem;
+}
+
+.footer nav a {
+    color:  black;
+    font-size: 0.95rem;
+    letter-spacing: 0.07em;
+    padding-bottom: 2px;
+    text-decoration: none;
 }
