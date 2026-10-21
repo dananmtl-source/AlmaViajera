@@ -5,7 +5,8 @@ Tareas:
 	-botones mostrar/ocultar formularios login/registro.
 	-formulario login/registro (html, css, js).
 
--diseño cabecera/footer generales para toda la web.
+-diseño cabecera ---Leti
+- diseño footer generales para toda la web. ---Ceci
 	-estilos y enlaces para moverse entre las páginas.
 
 -diseño páginas deseados/visitados (misma página con dos pestañas?)
