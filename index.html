@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -11,8 +11,9 @@
 
 <body class="gridBase">
 
-   <header class="cabecera">
-    <img src="assets/img/AlmaViajeraLogo.png" alt="logo">
+    <!-- Cabecera -->
+    <header class="cabecera">
+        <img src="assets/img/AlmaViajeraLogo.png" alt="logo">
         <a href="index.html" class="logo">
             AlmaViajera
         </a>
@@ -24,60 +25,62 @@
             <a href="favoritos.html">Favoritos</a>
         </nav>
 
-        <a href="mi-viaje.html" class="boton-viaje">
+        <a href="mi-viaje.html" class="botonViaje">
             Mi viaje
         </a>
-        
     </header>
 
+    <!-- Contenido -->
     <main>
-        <form>
-            <header>
-                <p>Hemos metido un Hotfix!</p>
-                <p>Segundo Hotfix de prueba</p>
-            </header>
+        <nav id="nav">
+            <!-- Botón lenguaje -->
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Abrir menú">
+                Elegir idioma <!-- esto luego lo podemos cambiar por una bandera o algo por el estilo -->
+            </button>
+            <!-- Idiomas -->
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#" aria-label="esp">ES</a></li><!-- Cambiar por lo que sea -->
+                <li><a href="#" aria-label="eng">EN</a></li><!-- Cambiar por lo que sea -->
+            </ul>
+        </nav>
 
-            <body>
-            </body>
-        </form>
-        <article>
-            <section>
-                <button></button>
-                <a href=""></a>
-            </section>
-        </article>
-        <div class="form_login">
-            <form>
-                <header>
-                    <h2></h2>
-                </header>
+        <!-- Buscador -->
+        <section>
+            <article class="buscador">
+                <form id="buscadorDestino">
+                    <label for="destino"> Destino: </label>
+                    <input type="text" id="destino" class="destino" placeholder="Barcelona" />
+                    <button class="" filter></button>
+                </form>
+            </article>
+        </section>
 
-                <body>
-                </body>
-            </form>
-        </div>
+        <!-- Favoritos -->
+        <section class="favoritos">
+            <h2>Favoritos</h2>
+            <article class="card">
+                <h3 class="nombreLugar"></h3>
+                <p class="textoTarjeta"></p>
+                <input type="button" class="verMas" value="Ver más" />
+            </article>
+        </section>
     </main>
-    <footer class="main-footer">
-
-
-        <!-- Agregar logo -->
-        <!-- haddhuu -->
-        <section class="foot-section">
-            <div class="foot-div">
-                <a href="tel:+34944762894"><img src=""></a>
-                <a href="tel:+34944762894"><img src=""></a>
-                <a href="tel:+34944762894"><img src=""></a>
-                <!-- Cambio prueba footer -->
-            </div>
-        </section>
-        <section class="foot-section sectionA terminos-politica">
-            <p>Política de cookies</p>
-            <p>Aviso legal</p>
-            <p>Política de privacidad</p>
-
-        </section>
-    </footer>
-
 </body>
+
+<!-- Footer -->
+<footer class="main-footer">
+    <section class="foot-section">
+        <div class="foot-div">
+            <a href="tel:+34944762894"><img src=""></a>
+            <a href="tel:+34944762894"><img src=""></a>
+            <a href="tel:+34944762894"><img src=""></a>
+        </div>
+    </section>
+    <section class="foot-section sectionA terminos-politica">
+        <p>Política de cookies</p>
+        <p>Aviso legal</p>
+        <p>Política de privacidad</p>
+    </section>
+</footer>
 
 </html>
