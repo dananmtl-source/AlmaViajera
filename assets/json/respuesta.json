@@ -1,0 +1,171 @@
+{
+    "Afghanistan": {
+        "altSpellings": [
+            "AF",
+            "Afġānistān",
+            "Islamic Emirate of Afghanistan"
+        ],
+        "commonName": "Afghanistan",
+        "officialName": "Islamic Republic of Afghanistan",
+        "cioc": "AFG",
+        "cca2": "AF",
+        "cca3": "AFG",
+        "ccn3": "004",
+        "currencies": {},
+        "demonyms": {},
+        "flag": "🇦🇫",
+        "flags": {
+            "description": "The flag of Afghanistan is composed of three equal vertical bands of black, red and green, with the national emblem in white centered in the red band.",
+            "emoji": "🇦🇫",
+            "png": "https://flags.restcountries.com/v5/w640/af.png",
+            "svg": "https://flags.restcountries.com/v5/svg/af.svg"
+        },
+        "region": "Asia",
+        "subregion": "Southern Asia",
+        "landlocked": true,
+        "independent": true,
+        "status": "officially-assigned",
+        "unMember": true,
+        "gini": {},
+        "government": {
+            "type": "Unitary totalitarian theocratic Islamic emirate"
+        },
+        "leaders": {
+            "message": "data.leaders is only available on paid plans. Go to https://restcountries.com/plans to make updates to your account.",
+            "sample": "https://files-03.restcountries.com/countries.00/sample.leaders.json"
+        },
+        "population": 43844000,
+        "idd": {},
+        "id": "0c883ff8-5732-4a64-b22d-a2777e8d894a"
+    },
+    "Armenia": {
+        "altSpellings": [
+            "Hayastan",
+            "Republic of Armenia"
+        ],
+        "commonName": "Armenia",
+        "officialName": "Republic of Armenia",
+        "cioc": "ARM",
+        "cca2": "AM",
+        "cca3": "ARM",
+        "ccn3": "051",
+        "currencies": {},
+        "demonyms": {},
+        "flag": "🇦🇲",
+        "flags": {
+            "description": "The flag of Armenia is composed of three equal horizontal bands of red, blue and orange.",
+            "emoji": "🇦🇲",
+            "png": "https://flags.restcountries.com/v5/w640/am.png",
+            "svg": "https://flags.restcountries.com/v5/svg/am.svg"
+        },
+        "region": "Asia",
+        "subregion": "Western Asia",
+        "landlocked": true,
+        "independent": true,
+        "status": "officially-assigned",
+        "unMember": true,
+        "gini": {
+            "2019": 25.1,
+            "2020": 27.9,
+            "2021": 27.9,
+            "2022": 27.2,
+            "2023": 27.4
+        },
+        "government": {
+            "type": "Unitary parliamentary republic"
+        },
+        "leaders": {
+            "message": "data.leaders is only available on paid plans. Go to https://restcountries.com/plans to make updates to your account.",
+            "sample": "https://files-03.restcountries.com/countries.00/sample.leaders.json"
+        },
+        "population": 3103900,
+        "idd": {},
+        "id": "865e2124-063f-4d3b-b104-acfadf7f54dc"
+    },
+    "Bulgaria": {
+        "altSpellings": [
+            "Republic of Bulgaria"
+        ],
+        "commonName": "Bulgaria",
+        "officialName": "Republic of Bulgaria",
+        "cioc": "BUL",
+        "cca2": "BG",
+        "cca3": "BGR",
+        "ccn3": "100",
+        "currencies": {},
+        "demonyms": {},
+        "flag": "🇧🇬",
+        "flags": {
+            "description": "The flag of Bulgaria is composed of three equal horizontal bands of white, green and red.",
+            "emoji": "🇧🇬",
+            "png": "https://flags.restcountries.com/v5/w640/bg.png",
+            "svg": "https://flags.restcountries.com/v5/svg/bg.svg"
+        },
+        "region": "Europe",
+        "subregion": "Southeast Europe",
+        "landlocked": false,
+        "independent": true,
+        "status": "officially-assigned",
+        "unMember": true,
+        "gini": {
+            "2019": 40.3,
+            "2020": 40.5,
+            "2021": 39.0,
+            "2022": 38.2,
+            "2023": 39.5
+        },
+        "government": {
+            "type": "Unitary parliamentary republic"
+        },
+        "leaders": {
+            "message": "data.leaders is only available on paid plans. Go to https://restcountries.com/plans to make updates to your account.",
+            "sample": "https://files-03.restcountries.com/countries.00/sample.leaders.json"
+        },
+        "population": 6423207,
+        "idd": {},
+        "id": "1c18f16b-4f43-403d-9bf3-e1b98cd589e4"
+    },
+    "Croatia": {
+        "altSpellings": [
+            "Republic of Croatia"
+        ],
+        "commonName": "Croatia",
+        "officialName": "Republic of Croatia",
+        "cioc": "CRO",
+        "cca2": "HR",
+        "cca3": "HRV",
+        "ccn3": "191",
+        "currencies": {},
+        "demonyms": {},
+        "flag": "🇭🇷",
+        "flags": {
+            "description": "The flag of Croatia is composed of three equal horizontal bands of red, white and blue, with the coat of arms of Croatia superimposed in the center.",
+            "emoji": "🇭🇷",
+            "png": "https://flags.restcountries.com/v5/w640/hr.png",
+            "svg": "https://flags.restcountries.com/v5/svg/hr.svg"
+        },
+        "region": "Europe",
+        "subregion": "Southeast Europe",
+        "landlocked": false,
+        "independent": true,
+        "status": "officially-assigned",
+        "unMember": true,
+        "gini": {
+            "2019": 28.9,
+            "2020": 29.5,
+            "2021": 28.9,
+            "2022": 30.0,
+            "2023": 30.1
+        },
+        "government": {
+            "type": "Unitary parliamentary republic"
+        },
+        "leaders": {
+            "message": "data.leaders is only available on paid plans. Go to https://restcountries.com/plans to make updates to your account.",
+            "sample": "https://files-03.restcountries.com/countries.00/sample.leaders.json"
+        },
+        "population": 3874993,
+        "idd": {},
+        "id": "ea8cccb8-dc6f-45e8-8349-d0d3ed933fde"
+    }
+}
