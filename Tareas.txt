@@ -6,7 +6,7 @@ Tareas:
 	-formulario login/registro (html, css, js).
 
 -diseño cabecera ---Leti
-- diseño footer generales para toda la web. ---Ceci
+- diseño footer generales para toda la web. ---Ceci -hecho
 	-estilos y enlaces para moverse entre las páginas.
 
 -diseño páginas deseados/visitados (misma página con dos pestañas?)
@@ -15,5 +15,5 @@ Tareas:
 
 -javascript llamada, recogida y tratamiento de datos.
 
--estilos de la página.
+-estilos de la página. --ceci
 
