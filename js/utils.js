@@ -5,13 +5,18 @@ import data from '../assets/json/respuesta.json' with { type: "json" };
 let countriesCache = new Map();
 
 class RespuestaDeLasAPIs{
-    constructor(iso2, commonName, flagUrl, dialCode, currencyCode, currencySymbol){
+    constructor(iso2, name, flag, phoneCode, currency, currencySymbol, currencyName, capital, latitude, longitude, region){
         this.iso2 = iso2,
-        this.commonName = commonName,
-        this.flagUrl = flagUrl,
-        this.dialCode = dialCode,
-        this.currencyCode = currencyCode,
-        this.currencySymbol = currencySymbol
+        this.name = name,
+        this.flag = flag,
+        this.phoneCode = phoneCode,
+        this.currency = currency,
+        this.currencySymbol = currencySymbol,
+        this.currencyName = currencyName,
+        this.capital = capital,
+        this.latitude = latitude,
+        this.longitude = longitude,
+        this.region = region
     }   
 }
 
@@ -46,32 +51,27 @@ async function llamadaRestCountries(){
     }
 }
 
-function convertirRespuestaApiToJson(respuesta){
-    let data = JSON.stringify(respuesta.data);
-    let meta = JSON.stringify(respuesta.meta);
-    return json;
-}
+// function convertirRespuestaApiToJson(respuesta){
+//     let data = JSON.stringify(respuesta.data);
+//     let meta = JSON.stringify(respuesta.meta);
+//     return json;
+// }
 
 async function simularIniciamosPeticionDeDatos(){
-    let x = await llamadaRestCountries();
-    respuesta = construirRespuesta(x.data);
+    let respuestaAPI = await llamadaRestCountries();
+    respuesta = construirRespuesta(respuestaAPI.data);
     //return convertirRespuestaApiToJson(x);
 
 }
 
+//
 function construirRespuesta(datos){
     const respuesta = new Map();
     let count = 0;
     datos.forEach(element => {
-        respuesta.set(count,{nombre: element.commonName, bandera: element.flag, codigoPais: element.iso2})
-        count++;
+        
     });
-    // const respuesta{
-    //     commonName: nombre,
-    //     flag: bandera,
-    //     cioc: codigoPais
-    // };
-    let respuestaCountries = llamadaRestCountries();
+    return respuesta;
+ }
 
-
-// }
+ simularIniciamosPeticionDeDatos();
