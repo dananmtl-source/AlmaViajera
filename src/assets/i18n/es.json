@@ -1,0 +1,30 @@
+{
+    "general": {
+        "pais": "País",
+        "ciudad": "Ciudad",
+        "buscar": "Buscar",
+        "favoritos": "Favoritos"
+    },
+    "header": {
+        "inicio": "Incio",
+        "favoritos": "Favoritos",
+        "cuenta": "Cuenta"
+    },
+    "login": {
+        "tituloLogin": "Iniciar sesión",
+        "login": "Inciar sesión",
+        "crear": "Crear cuenta",
+        "usuario": "Email o usuario",
+        "contrasena": "Contraseña"
+    },
+    "viajes": {
+        "tituloVisitados": "Visitados",
+        "tituloFavoritos": "Favoritos"
+    },
+    "footer": {
+        "instagram": "instagram",
+        "cookies": "Política de cookies",
+        "legal": "Aviso legal",
+        "privacidad": "Política privacidad"
+    }
+}

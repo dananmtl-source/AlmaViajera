@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="src/api/css/style.css">
     <link rel="icon" type="image/x-icon" href="/assets/img/AlmaViajeraLogo.png">
+    <script src="utils.js"></script>
+    <script src="index.js"></script>
     <title>AlmaViajera</title>
 </head>
 
@@ -13,25 +15,36 @@
 
     <!-- Cabecera -->
     <header class="cabecera">
-        <img src="assets/img/AlmaViajeraLogo.png" alt="logo">
-        <a href="index.html" class="logo">
-            AlmaViajera
+        <!-- Logo de la web -->
+        <a href="index.html" class="identidad">
+            <img src="src/assets/images/AlmaViajeraLogo.png" alt="Logo de AlmaViajera">
+            <span class="logo">AlmaViajera</span>
         </a>
 
-        <nav class="menu">
+        <!-- Menú de navegación -->
+        <nav class="menu" aria-label="Navegación principal">
             <a href="index.html">Inicio</a>
             <a href="destinos.html">Destinos</a>
-            <a href="explorar.html">Explorar</a>
             <a href="favoritos.html">Favoritos</a>
         </nav>
 
-        <a href="mi-viaje.html" class="botonViaje">
+        <!-- Acceso a la lista personal de viajes -->
+        <a href="mi-viaje.html" class="boton-viaje">
             Mi viaje
         </a>
     </header>
 
-    <!-- Login -->
+    <!-- Contenido -->
     <main>
+        <!-- Idioma -->
+        <select id="language-switcher" aria-label="Selección de idioma">
+            <details class="language-selector">
+                <summary class="menu-toggle">Elegir idioma</summary>
+                <option value="es">ES</option>
+                <option value="en">EN</option>
+            </details>
+        </select>
+        <!-- Login -->
         <form id="login">
             <label for="user"> Usuario: </label>
             <input type="text" id="ussuario" class="usuario" placeholder="Usuario" />
@@ -40,22 +53,20 @@
             <button class="" filter></button>
         </form>
     </main>
-</body>
 
-<!-- Footer -->
-<footer class="main-footer">
-    <section class="foot-section">
-        <div class="foot-div">
-            <a href="tel:+34944762894"><img src=""></a>
-            <a href="tel:+34944762894"><img src=""></a>
-            <a href="tel:+34944762894"><img src=""></a>
-        </div>
-    </section>
-    <section class="foot-section sectionA terminos-politica">
-        <p>Política de cookies</p>
-        <p>Aviso legal</p>
-        <p>Política de privacidad</p>
-    </section>
-</footer>
+    <!-- Footer -->
+    <footer class="footer">
+
+        <nav>
+            <a href="https://instagram.com" target="_blank">Instagram</a>
+            <a href="#">Política de privacidad</a>
+            <a href="#">Descubre</a>
+            <a href="#">Ayuda</a>
+
+        </nav>
+        <p>© 2026 AlmaViajera.</p>
+        <p>Hecho en Bilbao.</p>
+    </footer>
+</body>
 
 </html>
