@@ -1,0 +1,30 @@
+{
+    "general": {
+        "pais": "Country",
+        "ciudad": "City",
+        "buscar": "Search",
+        "favoritos": "Favourites"
+    },
+    "header": {
+        "inicio": "",
+        "favoritos": "Favourites",
+        "cuenta": "Account"
+    },
+    "login": {
+        "tituloLogin": "Log in",
+        "login": "Login",
+        "crear": "Create account",
+        "usuario": "Email or user",
+        "contrasena": "Password"
+    },
+    "viajes": {
+        "tituloVisitados": "Visited",
+        "tituloFavoritos": "Favourites"
+    },
+    "footer": {
+        "instagram": "instagram",
+        "cookies": "Cookies policy",
+        "legal": "Legal notice",
+        "privacidad": "Privacy policy"
+    }
+}
