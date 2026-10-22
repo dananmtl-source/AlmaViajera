@@ -19,6 +19,7 @@ const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 async function llamadaRestCountries(){
     try{
+        let url = "https://api.apogeoapi.com/v1/countries";
 
         console.log("llamamos a la api y nos responde con el json");
         // let jsonRespuesta = data;   
@@ -27,51 +28,50 @@ async function llamadaRestCountries(){
         if (countriesCache.size < 0) return countriesCache;
 
         const res = await fetch(
-            `https://api.apogeoapi.com/v1/countries?apikey=apogeoapi_live_WO4hOborQVnUZsFOn91bq7OI3CyQZkfR`
+            `https://api.apogeoapi.com/v1/countries`,{
+                method: 'GET',
+                headers: {
+                    'X-API-Key': 'apogeoapi_live_hWrP42CPz9TjqwI45nvFS6niffBRFyk3'
+                }
+            }
         );
-        await sleep(10000);
-        let data = await res.json();
-        
+        const data = await res.json();
         countriesCache = data;
+        
         return data;
+
     }catch(error){
         console.error(error);
         return error;
     }
 }
 
-function llamadaRestCurrencies(){
-    try{
-        // if(filtro = undefined || filtro == null ){
-        //     throw new FilterUndefinedOrNull();
-        // }
-        // console.log("llamamos a la api y nos responde con el json");
-        // let jsonRespuesta = data;
-        // return jsonRespuesta;
-
-        let urlCompuesta = `q=${filtro}`;
-        fetch(
-            'https://api.restcountries.com/currencies/v1?q=germ®ion=Europe',
-            { headers: { 'Authorization': 'Bearer rc_live_9478358d0d984fa886c76ba31905d718' } }
-        )
-        .then(function (response) { return response.json(); })
-        .then(function (data) { console.log(data); });
-    }catch(error){
-        console.log("joTIO");
-        console.error(error);
-        return error;
-    }
+function convertirRespuestaApiToJson(respuesta){
+    let data = JSON.stringify(respuesta.data);
+    let meta = JSON.stringify(respuesta.meta);
+    return json;
 }
 
-// function construirRespuesta(filtro){
-//     const respuesta{
-//         commonName: nombre,
-//         flag: bandera,
-//         cioc: codigoPais
-//     };
-//     let respuestaCountries = llamadaRestCountries();
+async function simularIniciamosPeticionDeDatos(){
+    let x = await llamadaRestCountries();
+    respuesta = construirRespuesta(x.data);
+    //return convertirRespuestaApiToJson(x);
+
+}
+
+function construirRespuesta(datos){
+    const respuesta = new Map();
+    let count = 0;
+    datos.forEach(element => {
+        respuesta.set(count,{nombre: element.commonName, bandera: element.flag, codigoPais: element.iso2})
+        count++;
+    });
+    // const respuesta{
+    //     commonName: nombre,
+    //     flag: bandera,
+    //     cioc: codigoPais
+    // };
+    let respuestaCountries = llamadaRestCountries();
 
 
 // }
-
-console.log(llamadaRestCountries());
