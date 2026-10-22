@@ -1,0 +1,129 @@
+/* general */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    min-width: 320px;
+    margin: 0;
+    background: #f5f7f2
+}
+
+/* Variables de colores y tipografías */
+:root {
+    --color-principal: #264653;
+    --color-secundario: #2a9d8f;
+    --color-texto: #333333;
+    --color-blanco: #ffffff;
+
+    --fuente-titulos: Georgia, serif;
+    --fuente-texto: Arial, sans-serif;
+
+    --espacio-pequeno: 0.5rem;
+    --espacio-medio: 1rem;
+    --espacio-grande: 2rem;
+
+    --radio-borde: 8px;
+}
+
+/* Cabecera: diseño inicial para móviles */
+.cabecera {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--espacio-medio);
+
+    padding: var(--espacio-medio);
+    background-color: var(--color-blanco);
+}
+
+/* Logo y nombre de AlmaViajera */
+.identidad {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-pequeno);
+
+    text-decoration: none;
+}
+
+.identidad img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.logo {
+    font-family: var(--fuente-titulos);
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-principal);
+}
+
+/* Menú de navegación */
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--espacio-pequeno);
+}
+
+.menu a {
+    padding: var(--espacio-pequeno);
+    color: var(--color-texto);
+    font-family: var(--fuente-texto);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Efecto al pasar el ratón */
+.menu a:hover {
+    color: var(--color-secundario);
+}
+
+/* Botón Mi viaje */
+.boton-viaje {
+    padding: var(--espacio-pequeno) var(--espacio-medio);
+
+    background-color: var(--color-secundario);
+    color: var(--color-blanco);
+
+    border-radius: var(--radio-borde);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Adaptación para tabletas y ordenadores */
+@media (min-width: 768px) {
+    .cabecera {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .menu {
+        gap: var(--espacio-medio);
+    }
+}
+
+.footer {
+    padding: 2rem 2rem 1.5rem;
+  background: #274C56;
+  color: black;
+  text-align: center;
+ 
+}
+
+.footer nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem 2rem;
+}
+
+.footer nav a {
+    color:  black;
+    font-size: 0.95rem;
+    letter-spacing: 0.07em;
+    padding-bottom: 2px;
+    text-decoration: none;
+}
