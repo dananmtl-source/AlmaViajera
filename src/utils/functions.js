@@ -1,77 +1,90 @@
-import {FilterUndefinedOrNull} from "./errors.js";
+import { FilterUndefinedOrNull } from "./errors.js";
 import data from '../assets/json/respuesta.json' with { type: "json" };
 
 
 let countriesCache = new Map();
 
-class RespuestaDeLasAPIs{
-    constructor(iso2, name, flag, phoneCode, currency, currencySymbol, currencyName, capital, latitude, longitude, region){
+class RespuestaDeLasAPIs {
+    constructor(iso2, name, flag, phoneCode, currency, currencySymbol, currencyName, capital, latitude, longitude, region) {
         this.iso2 = iso2,
-        this.name = name,
-        this.flag = flag,
-        this.phoneCode = phoneCode,
-        this.currency = currency,
-        this.currencySymbol = currencySymbol,
-        this.currencyName = currencyName,
-        this.capital = capital,
-        this.latitude = latitude,
-        this.longitude = longitude,
-        this.region = region
-    }   
+            this.name = name,
+            this.flag = flag,
+            this.phoneCode = phoneCode,
+            this.currency = currency,
+            this.currencySymbol = currencySymbol,
+            this.currencyName = currencyName,
+            this.capital = capital,
+            this.latitude = latitude,
+            this.longitude = longitude,
+            this.region = region
+    }
 }
 
-const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+async function crearListaPaises(filtro) {
+    let respuestaAPI = await llamadaRestCountries(filtro);
 
-async function llamadaRestCountries(){
-    try{
+    return construirRespuesta(respuestaAPI.data);
+}
+
+//Esta función nos puede ser util si necesitamos esperar x tiempo a algún asincrono, llamada con: sleep(1000), el numero es el tiempo en milisegundos.
+// const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+//Función encargada de la llamada a la api, devuelve una respuesta con 
+// -data (la información de los paises) 
+// -meta (datos útiles para paginación como numero de elementos)
+async function llamadaRestCountries() {
+    try {
         let url = "https://api.apogeoapi.com/v1/countries";
 
         console.log("llamamos a la api y nos responde con el json");
-        // let jsonRespuesta = data;   
-        // return jsonRespuesta;
 
         if (countriesCache.size < 0) return countriesCache;
 
         const res = await fetch(
-            `https://api.apogeoapi.com/v1/countries`,{
-                method: 'GET',
-                headers: {
-                    'X-API-Key': 'apogeoapi_live_hWrP42CPz9TjqwI45nvFS6niffBRFyk3'
-                }
+            `https://api.apogeoapi.com/v1/countries`, {
+            method: 'GET',
+            headers: {
+                'X-API-Key': 'apogeoapi_live_hWrP42CPz9TjqwI45nvFS6niffBRFyk3'
             }
+        }
         );
         const data = await res.json();
         countriesCache = data;
-        
+
         return data;
 
-    }catch(error){
+    } catch (error) {
         console.error(error);
         return error;
     }
 }
 
-// function convertirRespuestaApiToJson(respuesta){
-//     let data = JSON.stringify(respuesta.data);
-//     let meta = JSON.stringify(respuesta.meta);
-//     return json;
-// }
+//Función para preparar la información de la api encapsulada en nuestra clase. Devuelve una lista.
+function construirRespuesta(datos) {
+    try {
+        let listaPaises = [];
+        datos.forEach(element => {
+            listaPaises.push(new RespuestaDeLasAPIs(
+                element.iso2,
+                element.name,
+                element.emoji,
+                element.phoneCode,
+                element.currency,
+                element.currencySymbol,
+                element.currencyName,
+                element.capital,
+                element.latitude,
+                element.longitude,
+                element.region
+            ))
+        });
+        return listaPaises;
+    } catch (error) {
+        console.error(error);
+        return error;
+    }
 
-async function simularIniciamosPeticionDeDatos(){
-    let respuestaAPI = await llamadaRestCountries();
-    respuesta = construirRespuesta(respuestaAPI.data);
-    //return convertirRespuestaApiToJson(x);
 
 }
 
-//
-function construirRespuesta(datos){
-    const respuesta = new Map();
-    let count = 0;
-    datos.forEach(element => {
-        
-    });
-    return respuesta;
- }
-
- simularIniciamosPeticionDeDatos();
+crearListaPaises();
