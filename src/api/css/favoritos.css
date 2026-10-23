@@ -1,0 +1,67 @@
+/* general */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    min-width: 320px;
+    margin: 0;
+    background: #f5f7f2
+}
+
+/* Contenedor de los destinos: Mobile First */
+.paises-destacados {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 24px;
+padding: 24px 16px;
+}
+
+/* Título de la sección */
+
+.paises-destacados h2 {
+width: 100%;
+text-align: center;
+margin: 0 0 8px;
+
+}
+
+
+/* Diseño de cada caja */
+.caja-pais {
+width: 100%;
+max-width: 320px;
+background-color: #ffffff;
+border-radius: 12px;
+overflow: hidden;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Imágenes */
+.caja-pais img {
+display: block;
+width: 100%;
+height: 180px;
+object-fit: cover;
+}
+
+@media (min-width: 768px) {
+/*cajas de paises*/
+.paises-destacados {
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: center;
+}
+
+.paises-destacados h2 {
+flex-basis: 100%;
+}
+
+.paises-destacados .caja-pais {
+flex: 0 1 350px;
+}
+
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/favoritos.css">
+    <link rel="icon" type="image/x-icon" href="../assets/img/AlmaViajeraLogo.png">
+    <script src="utils.js"></script>
+    <script src="index.js"></script>
+    <title>AlmaViajera</title>
+</head>
+
+<body>
+
+       <!-- Cabecera -->
+    <header class="cabecera">
+        <img src="../assets/img/AlmaViajeraLogo.png" alt="Alma Viajera">
+        <a href="index.html" class="logo">
+            AlmaViajera
+        </a>
+
+        <nav class="menu">
+            <a href="index.html">Inicio</a>
+            <a href="destinos.html">Destinos</a>
+            <a href="explorar.html">Explorar</a>
+            <a href="favoritos.html">Favoritos</a>
+        </nav>
+
+        <a href="mi-viaje.html" class="botonViaje">
+            Mi viaje
+        </a>
+    </header>
+
+    <main>
+          <!-- Idioma -->
+        <select id="language-switcher" aria-label="Selección de idioma">
+            <details class="language-selector">
+                <summary class="menu-toggle">Elegir idioma</summary>
+                <option value="es">ES</option>
+                <option value="en">EN</option>
+            </details>
+        </select>
+        <!-- Login -->
+        <form id="login">
+            <label for="user"> Usuario: </label>
+            <input type="text" id="ussuario" class="usuario" placeholder="Usuario" />
+            <label for="pass"> Contraseña:</label>
+            <input type="password" id="contraseña" class="contraseña" placeholder="*****" />
+            <button class="" filter></button>
+        </form>
+
+
+        <!-- Paises favoritos-->
+
+
+    <section class="paises-destacados">
+
+        <h2>Descubre nuevos destinos</h2>
+
+        <article class="caja-pais">
+        <img src="../../assets/images/AlmaViajeraLogo.png" alt="Paisaje de España">
+        <h3>España</h3>
+        <p>Descubre sus ciudades, playas y pueblos llenos de historia.</p>
+        <a href="#">Explorar destino</a>
+        </article>
+
+        <article class="caja-pais">
+        <img src="../../assets/images/AlmaViajeraLogo.png" alt="Paisaje de Italia">
+        <h3>Italia</h3>
+        <p>Disfruta de su gastronomía, arte y ciudades históricas.</p>
+        <a href="#">Explorar destino</a>
+        </article>
+
+        <article class="caja-pais">
+        <img src="../../assets/images/AlmaViajeraLogo.png" alt="Paisaje de Japón">
+        <h3>Japón</h3>
+        <p>Combina tradiciones ancestrales con ciudades modernas.</p>
+        <a href="#">Explorar destino</a>
+        </article>
+
+        <article class="caja-pais">
+        <img src="../../assets/images/AlmaViajeraLogo.png" alt="Paisaje de Francia">
+        <h3>Francia</h3>
+        <p>Explora sus monumentos, pueblos y paisajes naturales.</p>
+        <a href="#">Explorar destino</a>
+        </article>
+
+        <article class="caja-pais">
+        <img src="../../assets/images/AlmaViajeraLogo.png" alt="Paisaje de Paraguay">
+        <h3></h3>
+        <p>Explora sus monumentos, pueblos y paisajes naturales.</p>
+        <a href="#">Explorar destino</a>
+        </article>
+    </section>
+
+</main>
+
+
+
+<footer class="footer">
+
+    <nav>
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+        <a href="#">Política de privacidad</a>
+        <a href="#">Descubre</a>
+        <a href="#">Ayuda</a>
+
+    </nav>
+
+    <p>© 2026 AlmaViajera.</p>
+    <p>Hecho en Bilbao.</p>
+</footer>
+
+    
+</body>
+</html>
