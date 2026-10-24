@@ -19,19 +19,13 @@ const paises = [
     },
     {
         nombre: "Francia",
-        capital: "París"
+        capital: "París",
+        imagen: "https://flags.restcountries.com/v5/w320/fr.png"
     },
     {
         nombre: "Portugal",
-        capital: "Lisboa"
-    },
-    {
-        nombre: "Noruega",
-        capital: "Oslo"
-    },
-    {
-        nombre: "Grecia",
-        capital: "Atenas"
+        capital: "Lisboa",
+        imagen: "https://flags.restcountries.com/v5/w320/pt.png"
     }
 ];
 
