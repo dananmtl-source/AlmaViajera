@@ -7,34 +7,37 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/favoritos.css">
     <link rel="icon" type="image/x-icon" href="../assets/img/AlmaViajeraLogo.png">
-    <script src="utils.js"></script>
-    <script src="index.js"></script>
+    <script type="module" src="../../ui/favoritos.js"></script>
+
     <title>AlmaViajera</title>
 </head>
 
-<body>
+<body class="gridBase">
 
-       <!-- Cabecera -->
+    <!-- Cabecera -->
     <header class="cabecera">
-        <img src="../assets/img/AlmaViajeraLogo.png" alt="Alma Viajera">
-        <a href="index.html" class="logo">
-            AlmaViajera
+
+        <!-- Logo y nombre de la web -->
+        <a href="../../../index.html" class="identidad">
+            <img src="../../assets/images/AlmaViajeraLogo.png" alt="Logo de AlmaViajera">
+            <span class="logo">AlmaViajera</span>
         </a>
 
-        <nav class="menu">
-            <a href="index.html">Inicio</a>
-            <a href="destinos.html">Destinos</a>
-            <a href="explorar.html">Explorar</a>
+        <!-- Menú de navegación -->
+        <nav class="menu" aria-label="Navegación principal">
+            <a href="../../../index.html">Inicio</a>
+            <a href="viajes.html">Destinos</a>
             <a href="favoritos.html">Favoritos</a>
         </nav>
 
-        <a href="mi-viaje.html" class="botonViaje">
-            Mi viaje
-        </a>
+        <!-- Acceso a los viajes personales -->
+        <a href="#" class="boton-viaje">Mi viaje</a>
+
     </header>
 
+
     <main>
-          <!-- Idioma -->
+        <!-- Idioma -->
         <select id="language-switcher" aria-label="Selección de idioma">
             <details class="language-selector">
                 <summary class="menu-toggle">Elegir idioma</summary>
@@ -46,42 +49,43 @@
         <!-- Paises favoritos-->
 
 
-    <section id="paises-destacados">
+        <section id="paises-destacados">
 
-        <h2>Mis destinos Favoritos</h2>
+            <h2>Mis destinos Favoritos</h2>
 
-        <!--JavaScript creará  aqui una tarjeta por cada pais-->
+            <!--JavaScript creará  aqui una tarjeta por cada pais-->
 
-        <div id="lista-favoritos">
-            
-        </div>
+            <div id="lista-favoritos">
 
-        <!--mensaje si no hay  favoritos-->
+            </div>
 
-        <p id="mensaje-vacio">
-            Todavía no tienes paises favoritos
-        </p>
-     
-    </section>
+            <!--mensaje si no hay  favoritos-->
 
-</main>
+            <p id="mensaje-vacio">
+                Todavía no tienes paises favoritos
+            </p>
+
+        </section>
+
+    </main>
 
 
 
-<footer class="footer">
+    <footer class="footer">
 
-    <nav>
-        <a href="https://instagram.com" target="_blank">Instagram</a>
-        <a href="#">Política de privacidad</a>
-        <a href="#">Descubre</a>
-        <a href="#">Ayuda</a>
+        <nav>
+            <a href="https://instagram.com" target="_blank">Instagram</a>
+            <a href="#">Política de privacidad</a>
+            <a href="#">Descubre</a>
+            <a href="#">Ayuda</a>
 
-    </nav>
+        </nav>
 
-    <p>© 2026 AlmaViajera.</p>
-    <p>Hecho en Bilbao.</p>
-</footer>
+        <p>© 2026 AlmaViajera.</p>
+        <p>Hecho en Bilbao.</p>
+    </footer>
 
-    
+
 </body>
+
 </html>
