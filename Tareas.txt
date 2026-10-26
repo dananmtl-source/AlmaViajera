@@ -13,7 +13,10 @@ Tareas:
 
 -diseño página búsqueda de destinos con lista ordenada.
 
--javascript llamada, recogida y tratamiento de datos.
+-javascript llamada, recogida y tratamiento de datos. ---Sergio (Hecho)
+
+-almacenamiento, lectura y borrado de datos en localStorage. ---Sergio (funciones completas, nodejs no soporta)
+
+-página con lista basica de paises cargados por la api, sin estilos, necesaria para pruebas localStorage. ---Sergio
 
 -estilos de la página.
-
