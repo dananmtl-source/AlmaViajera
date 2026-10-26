@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="icon" type="image/x-icon" href="/assets/img/AlmaViajeraLogo.png">
-    <<script src="../../ui/index.js"></script>
-    <script src="../../index.js"></script>
+    <link rel="stylesheet" href="../css/favoritos.css">
+    <link rel="icon" type="image/x-icon" href="../assets/img/AlmaViajeraLogo.png">
+    <script type="module" src="../../ui/favoritos.js"></script>
+
     <title>AlmaViajera</title>
 </head>
 
@@ -15,8 +16,9 @@
 
     <!-- Cabecera -->
     <header class="cabecera">
-        <!-- Logo de la web -->
-        <a href="index.html" class="identidad">
+
+        <!-- Logo y nombre de la web -->
+        <a href="incio.html" class="identidad">
             <img src="../../assets/images/AlmaViajeraLogo.png" alt="Logo de AlmaViajera">
             <span class="logo">AlmaViajera</span>
         </a>
@@ -47,18 +49,32 @@
             </details>
         </select>
 
-        <!-- Información del destino/s-->
-        <section class="favoritos">
-            
-            <article class="cardFavs">
-                
-               
-            </article>
+        <!-- Paises favoritos-->
+
+
+        <section id="paises-destacados">
+
+            <h2>Mis destinos Favoritos</h2>
+
+            <!--JavaScript creará  aqui una tarjeta por cada pais-->
+
+            <div id="lista-favoritos">
+
+            </div>
+
+            <!--mensaje si no hay  favoritos-->
+
+            <p id="mensaje-vacio">
+                Todavía no tienes paises favoritos
+            </p>
+
         </section>
+
     </main>
 
-    <!-- Footer -->
-        <footer class="footer">
+
+
+    <footer class="footer">
 
         <nav>
             <a href="https://instagram.com" target="_blank">Instagram</a>
@@ -67,9 +83,12 @@
             <a href="#">Ayuda</a>
 
         </nav>
+
         <p>© 2026 AlmaViajera.</p>
         <p>Hecho en Bilbao.</p>
     </footer>
+
+
 </body>
 
 </html>
