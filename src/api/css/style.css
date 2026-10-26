@@ -103,6 +103,48 @@
 
 .footer {
     padding: 1rem 0.1rem 0rem;
+    background: rgba(3, 3, 3, 0.5);
+    color: white;
+    text-align: center;
+    font-family: var(--fuente-texto);
+    padding-bottom: 1rem;
+}
+
+.footer nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem 2rem;
+
+    
+}
+
+.footer nav a {
+    color: white;
+    font-size: 0.95rem;
+    letter-spacing: 0.07em;
+    text-decoration: none;
+   
+}
+
+.footer p:last-child {
+    margin-bottom: 0.25rem;
+}
+
+
+/* Adaptación para tabletas y ordenadores */
+@media (min-width: 768px) {
+    .cabecera {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .menu {
+        gap: var(--espacio-medio);
+    }
+}
+
+.footer {
+    padding: 1rem 0.1rem 0rem;
       background: rgba(3, 3, 3, 0.5);
     color: white;
     text-align: center;
