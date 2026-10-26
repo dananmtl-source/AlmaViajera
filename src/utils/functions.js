@@ -2,11 +2,9 @@
 // import data from '../assets/json/respuesta.json' with { type: "json" };
 
 
-export function construirHtmlConListaPaises() {
+export async function construirHtmlConListaPaises() {
     let listaPaises = [];
-    listaPaises = crearListaPaises();
-
-    sleep(10000);
+    listaPaises = await crearListaPaises();
 
     construirHtml(listaPaises);
 }
@@ -47,16 +45,15 @@ async function llamadaRestCountries() {
     try {
         let url = "https://api.apogeoapi.com/v1/countries";
 
-        console.log("llamamos a la api y nos responde con el json");
-
         if (countriesCache.size > 0) return countriesCache;
 
         const res = await fetch(
-            `https://api.apogeoapi.com/v1/countries`, {
-            method: 'GET',
+            url, {
             headers: {
-                'X-API-Key': 'apogeoapi_live_hWrP42CPz9TjqwI45nvFS6niffBRFyk3'
-            }
+                'X-API-Key': 'apogeoapi_live_hWrP42CPz9TjqwI45nvFS6niffBRFyk3',
+                'Access-Control-Allow-Origin': 'https://api.apogeoapi.com'
+            },
+            mode:"no-cors"
         }
         );
         if(!res.ok){
@@ -140,26 +137,32 @@ function construirRespuesta(datos) {
 //#region DOM
 
 function construirHtml(listaPaises) {
-    const ul = document.getElementById("testUl");
-    let count = 0;
-    listaPaises.forEach(element => {
-        count++;
-        let li = document.createElement("li");
-        let img = document.createElement("img");
-        let p = document.createElement("p");
+    // listaPaises.finally(() => {
+    //     console.log("Experiment completed");
+
         
-        li.setAttribute("id", `li${count}`);
-        img.setAttribute("id", `img${count}`);
-        p.setAttribute("id", `p${count}`);
+        
+    // });
+    
+    //const ul = document.getElementById("testUl");
+        let count = 0;
+        listaPaises.forEach(element => {
+            count++;
+            let li = document.createElement("li");
+            let img = document.createElement("img");
+            let p = document.createElement("p");
+            
+            li.setAttribute("id", `li${count}`);
+            img.setAttribute("id", `img${count}`);
+            p.setAttribute("id", `p${count}`);
 
-        img.setAttribute("src", `${element.flagUrl}`);
-        p.appendChild(document.createTextNode(element.name));
+            img.setAttribute("src", `${element.flagUrl}`);
+            p.appendChild(document.createTextNode(element.name));
 
-        ul.appendChild(li);
-        li.appendChild(img);
-        li.appendChild(p);
-    })
-
+            ul.appendChild(li);
+            li.appendChild(img);
+            li.appendChild(p);
+        })
 }
 
 
@@ -170,12 +173,12 @@ console.log(construirHtmlConListaPaises());
 
 //#region Código para pruebas
 
-async function testLocalStorage() {
-    let listaPaises = [];
+// async function testLocalStorage() {
+//     let listaPaises = [];
 
-    listaPaises = await crearListaPaises();
-    guardarLocalStorage(listaPaises);
+//     listaPaises = await crearListaPaises();
+//     guardarLocalStorage(listaPaises);
 
-}
+// }
 
 //#endregion
