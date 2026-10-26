@@ -5,16 +5,18 @@
     box-sizing: border-box;
 }
 
-body {
-    min-width: 320px;
-    margin: 0;
-    background: #f5f7f2
+
+.gridBase {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
 }
+
 
 /* Variables de colores y tipografías */
 :root {
     --color-principal: #264653;
-    --color-secundario: #2a9d8f;
+    --color-secundario: #264653;;
     --color-texto: #333333;
     --color-blanco: #ffffff;
 
@@ -61,6 +63,10 @@ body {
     color: var(--color-principal);
 }
 
+.boton-viaje {
+    font-family: var(--fuente-texto);
+}
+
 /* Menú de navegación */
 .menu {
     display: flex;
@@ -94,6 +100,37 @@ body {
     font-weight: bold;
 }
 
+
+.footer {
+    padding: 1rem 0.1rem 0rem;
+    background: rgba(3, 3, 3, 0.5);
+    color: white;
+    text-align: center;
+    font-family: var(--fuente-texto);
+    padding-bottom: 1rem;
+}
+
+.footer nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem 2rem;
+
+    
+}
+
+.footer nav a {
+    color: white;
+    font-size: 0.95rem;
+    letter-spacing: 0.07em;
+    text-decoration: none;
+   
+}
+
+.footer p:last-child {
+    margin-bottom: 0.25rem;
+}
+
+
 /* Adaptación para tabletas y ordenadores */
 @media (min-width: 768px) {
     .cabecera {
@@ -104,26 +141,4 @@ body {
     .menu {
         gap: var(--espacio-medio);
     }
-}
-
-.footer {
-    padding: 2rem 2rem 1.5rem;
-  background: #274C56;
-  color: black;
-  text-align: center;
- 
-}
-
-.footer nav {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem 2rem;
-}
-
-.footer nav a {
-    color:  black;
-    font-size: 0.95rem;
-    letter-spacing: 0.07em;
-    padding-bottom: 2px;
-    text-decoration: none;
 }
