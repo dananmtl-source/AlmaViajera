@@ -144,28 +144,48 @@
 }
 
 .footer {
-    padding: 2rem 2rem 1.5rem;
-  background: #2a9d8f;
-  color: #333333;
-  text-align: center;
-  
-font-family: var(--fuente-texto);
-  
- 
+    padding: 1rem 0.1rem 0rem;
+      background: rgba(3, 3, 3, 0.5);
+    color: white;
+    text-align: center;
+    font-family: var(--fuente-texto);
+    padding-bottom: 1rem;
 }
 
 .footer nav {
     display: flex;
     justify-content: center;
     gap: 1.5rem 2rem;
+
     
 }
 
 .footer nav a {
-    color: #333333;
+    color: white;
     font-size: 0.95rem;
     letter-spacing: 0.07em;
-    padding-bottom: 2px;
     text-decoration: none;
-    font-family: var(--fuente-texto);
+   
+}
+
+.footer p:last-child {
+    margin-bottom: 0.25rem;
+}
+
+
+
+
+@media (min-width: 768px) {
+    .cabecera {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .menu {
+        gap: var(--espacio-medio);
+    }
+
+    .footer {
+        padding: 1.5rem 1rem;
+    }
 }
