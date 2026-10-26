@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/api/css/style.css">
+    <link rel="stylesheet" href="src/api/css/login.css">
     <link rel="icon" type="image/x-icon" href="/assets/img/AlmaViajeraLogo.png">
     <script src="src/index.js"></script>
     <title>AlmaViajera</title>
@@ -45,13 +46,25 @@
             </details>
         </select>
         <!-- Login -->
-        <form id="login">
-            <label for="user"> Usuario: </label>
-            <input type="text" id="ussuario" class="usuario" placeholder="Usuario" />
-            <label for="pass"> Contraseña:</label>
-            <input type="password" id="contraseña" class="contraseña" placeholder="*****" />
-            <button class="" filter></button>
-        </form>
+        <section class="loginSection">
+            <form id="login">
+                <label for="usuario" class="loginUsuario"> Usuario: </label>
+                <input type="text" id="usuario" class="usuario" placeholder=" Indica tu usuario" />
+
+                <label for="contraseña" class="loginContraseña">Contraseña:</label>
+                <input type="password" id="contraseña" class="contraseña" placeholder="*****" />
+                <button class="loginbtn" type="submit">Iniciar sesión</button>
+        
+<div class="options-row">
+      <div class="form-check d-flex align-items-center gap-2">
+        <input class="form-check-input" type="checkbox" id="remember">
+        <label class="form-check-label" for="remember">Remember me</label>
+      </div>
+      <a href="#" class="forgot-link">Forgot password?</a>
+    </div>
+</form>
+
+        </section>
     </main>
 
     <!-- Footer -->
@@ -68,5 +81,4 @@
         <p>Hecho en Bilbao.</p>
     </footer>
 </body>
-
 </html>
