@@ -1,3 +1,69 @@
-.destino{
-    
+/* Tarjetas */
+#resultadosDestinos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+    gap: 1.25rem;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    max-width: 1200px;
+}
+
+#resultadosDestinos > h2 {
+    grid-column: 1 / -1;
+    margin: 0;
+    color: var(--color-principal, #264653);
+    font-family: var(--fuente-titulos, Georgia, serif);
+}
+
+#resultadosDestinos .destino {
+    padding: 1.25rem;
+    background-color: var(--color-blanco, #ffffff);
+    border: 1px solid #d8e2e5;
+    border-radius: var(--radio-borde, 8px);
+    box-shadow: 0 4px 12px rgb(38 70 83 / 10%);
+    color: var(--color-texto, #333333);
+    font-family: var(--fuente-texto, Arial, sans-serif);
+}
+
+#resultadosDestinos .destino h3 {
+    margin: 0 0 0.75rem;
+    color: var(--color-principal, #264653);
+    font-family: var(--fuente-titulos, Georgia, serif);
+}
+
+#resultadosDestinos .destino p {
+    line-height: 1.6;
+}
+
+#resultadosDestinos .destino h4 {
+    margin-bottom: 0.5rem;
+}
+
+#resultadosDestinos .destino ul {
+    margin-bottom: 0;
+    padding-left: 1.25rem;
+    line-height: 1.6;
+}
+
+/* Botón de favoritos */
+.btn-like {
+    align-self: flex-start;
+    margin-top: 1rem;
+    padding: 0.55rem 0.85rem;
+    border: 1px solid var(--color-principal, #264653);
+    border-radius: var(--radio-borde, 8px);
+    background-color: var(--color-blanco, #ffffff);
+    color: var(--color-principal, #264653);
+    font: inherit;
+    cursor: pointer;
+}
+
+.btn-like[aria-pressed="true"] {
+    background-color: var(--color-principal, #264653);
+    color: var(--color-blanco, #ffffff);
+}
+
+.btn-like:focus-visible {
+    outline: 3px solid #e9c46a;
+    outline-offset: 2px;
 }
