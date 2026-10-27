@@ -7,7 +7,10 @@
     <link rel="stylesheet" href="src/api/css/style.css">
     <link rel="stylesheet" href="src/api/css/login.css">
     <link rel="icon" type="image/x-icon" href="/assets/img/AlmaViajeraLogo.png">
-    <script src="src/index.js"></script>
+    <script src="src/index.js" defer></script>
+    <script src="src/ui/login.js" defer></script>
+    <script src="../../utils/auth.js"></script>
+   
     <title>AlmaViajera</title>
 </head>
 
@@ -52,17 +55,18 @@
                 <input type="text" id="usuario" class="usuario" placeholder=" Indica tu usuario" />
 
                 <label for="contraseña" class="loginContraseña">Contraseña:</label>
-                <input type="password" id="contraseña" class="contraseña" placeholder="*****" />
+                <input type="password" id="contrasena" class="contraseña" placeholder="*****" />
+                <p id="loginError" class="loginError" role="alert"></p>
                 <button class="loginbtn" type="submit">Iniciar sesión</button>
-        
-<div class="options-row">
-      <div class="form-check d-flex align-items-center gap-2">
-        <input class="form-check-input" type="checkbox" id="remember">
-        <label class="form-check-label" for="remember">Remember me</label>
-      </div>
-      <a href="#" class="forgot-link">Forgot password?</a>
-    </div>
-</form>
+
+                <div class="options-row">
+                    <div class="form-check d-flex align-items-center gap-2">
+                        <input class="form-check-input" type="checkbox" id="remember">
+                        <label class="form-check-label" for="remember">Remember me</label>
+                    </div>
+                    <a href="#" class="forgot-link">Forgot password?</a>
+                </div>
+            </form>
 
         </section>
     </main>
@@ -81,4 +85,5 @@
         <p>Hecho en Bilbao.</p>
     </footer>
 </body>
+
 </html>
