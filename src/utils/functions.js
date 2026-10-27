@@ -1,7 +1,5 @@
-import { FilterUndefinedOrNull } from "./errors.js";
-import data from '../assets/json/respuesta.json' with { type: "json" };
 
-
+//#region LlamadasAPI
 let countriesCache = new Map();
 
 class RespuestaDeLasAPIs {
@@ -20,41 +18,76 @@ class RespuestaDeLasAPIs {
     }
 }
 
-async function crearListaPaises(filtro) {
-    let respuestaAPI = await llamadaRestCountries(filtro);
+//Esta función nos puede ser util si necesitamos esperar x tiempo a algún asincrono, llamada con: sleep(1000), el numero es el tiempo en milisegundos.
+const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+export async function crearListaPaisesByName(filtro) {
+    let respuestaAPI = await llamadaRestCountriesByName();
 
     return construirRespuesta(respuestaAPI.data);
 }
 
-//Esta función nos puede ser util si necesitamos esperar x tiempo a algún asincrono, llamada con: sleep(1000), el numero es el tiempo en milisegundos.
-// const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+export async function crearListaPaises() {
+    let respuestaAPI = await llamadaRestCountries();
+
+    return construirRespuesta(respuestaAPI.data);
+}
 
 //Función encargada de la llamada a la api, devuelve una respuesta con 
 // -data (la información de los paises) 
 // -meta (datos útiles para paginación como numero de elementos)
-async function llamadaRestCountries() {
+async function llamadaRestCountriesByName(filtro) {
     try {
-        let url = "https://api.apogeoapi.com/v1/countries";
-
-        console.log("llamamos a la api y nos responde con el json");
-
-        if (countriesCache.size < 0) return countriesCache;
+        const apiUrl = "https://api.apogeoapi.com/v1/countries/search";
+        let url = new URL(apiUrl);
+        if(filtro != undefined && filtro.length>0){
+            url.searchParams.set("q",filtro);
+        }
+        if (countriesCache.size > 0) return countriesCache;
 
         const res = await fetch(
-            `https://api.apogeoapi.com/v1/countries`, {
-            method: 'GET',
+            url, {
             headers: {
                 'X-API-Key': 'apogeoapi_live_hWrP42CPz9TjqwI45nvFS6niffBRFyk3'
             }
         }
         );
+        if(!res.ok){
+            throw new Error(res.statusText);
+        }
         const data = await res.json();
         countriesCache = data;
 
         return data;
 
     } catch (error) {
-        console.error(error);
+        console.error("Error al llamar a la API: ",error);
+        return error;
+    }
+}
+
+async function llamadaRestCountries() {
+    try {
+        const apiUrl = "https://api.apogeoapi.com/v1/countries";
+        let url = new URL(apiUrl);
+
+        const res = await fetch(
+            url, {
+            headers: {
+                'X-API-Key': 'apogeoapi_live_hWrP42CPz9TjqwI45nvFS6niffBRFyk3'
+            }
+        }
+        );
+        if(!res.ok){
+            throw new Error(res.statusText);
+        }
+        const data = await res.json();
+        countriesCache = data;
+
+        return data;
+
+    } catch (error) {
+        console.error("Error al llamar a la API: ",error);
         return error;
     }
 }
@@ -67,7 +100,7 @@ function construirRespuesta(datos) {
             listaPaises.push(new RespuestaDeLasAPIs(
                 element.iso2,
                 element.name,
-                element.emoji,
+                element.flagUrl,
                 element.phoneCode,
                 element.currency,
                 element.currencySymbol,
@@ -83,8 +116,7 @@ function construirRespuesta(datos) {
         console.error(error);
         return error;
     }
-
-
 }
 
-crearListaPaises();
+//#endregion
+
