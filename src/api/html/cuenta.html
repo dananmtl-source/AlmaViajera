@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/x-icon" href="/assets/img/AlmaViajeraLogo.png">
+    <script src="../../ui/index.js"></script>
+    <script src="../../index.js"></script>
+    <title>AlmaViajera</title>
+</head>
+
+<body class="gridBase">
+
+    <!-- Cabecera -->
+    <header class="cabecera">
+        <!-- Logo de la web -->
+        <a href="index.html" class="identidad">
+            <img src="../../assets/images/AlmaViajeraLogo.png" alt="Logo de AlmaViajera">
+            <span class="logo">AlmaViajera</span>
+        </a>
+
+        <!-- Menú de navegación -->
+        <nav class="menu" aria-label="Navegación principal">
+            <a href="inicio.html">Inicio</a>
+            <a href="viajes.html">Viajes</a>
+            <a href="cuenta.html">Mi cuenta</a>
+        </nav>
+
+        <!-- Acceso a la lista personal de viajes -->
+        <a href="mi-viaje.html" class="boton-viaje">
+            Mi viaje
+        </a>
+    </header>
+
+
+    <!-- Contenido -->
+    <main>
+        <!-- Idioma -->
+        <select id="language-switcher" aria-label="Selección de idioma">
+            <details class="language-selector">
+                <summary class="menu-toggle">Elegir idioma</summary>
+                <option value="es">ES</option>
+                <option value="en">EN</option>
+            </details>
+        </select>
+
+        <!-- Favoritos (se podrían agrupar por ciudades o países)-->
+        <section>
+            <article class="favoritos">
+                <!-- <label for="destino"> Destino: </label>
+                <input type="text" id="destino" class="destino" placeholder="Barcelona" />
+                <button class="" filter></button> -->
+                <select id="destino">
+                    <option value="">Selecciona un país</option>
+                </select>
+            </article>
+        </section>
+
+        <!-- Visitados -->
+        <section class="visitados">
+            <h2>Favoritos</h2>
+            <article class="card">
+                <h3 class="nombreLugar"></h3>
+                <p class="textoTarjeta"></p>
+                <input type="button" class="verMas" value="Ver más" />
+            </article>
+        </section>
+    </main>
+
+    <!-- Footer -->
+        <footer class="footer">
+
+        <nav>
+            <a href="https://instagram.com" target="_blank">Instagram</a>
+            <a href="#">Política de privacidad</a>
+            <a href="#">Descubre</a>
+            <a href="#">Ayuda</a>
+
+        </nav>
+        <p>© 2026 AlmaViajera.</p>
+        <p>Hecho en Bilbao.</p>
+    </footer>
+</body>
+
+</html>
