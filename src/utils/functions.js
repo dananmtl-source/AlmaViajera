@@ -43,17 +43,16 @@ async function crearListaPaises() {
 // -meta (datos útiles para paginación como numero de elementos)
 async function llamadaRestCountries() {
     try {
-        let url = "https://api.apogeoapi.com/v1/countries";
+        const apiUrl = "https://api.apogeoapi.com/v1/countries";
+        const url = new URL(apiUrl);
 
         if (countriesCache.size > 0) return countriesCache;
 
         const res = await fetch(
             url, {
             headers: {
-                'X-API-Key': 'apogeoapi_live_hWrP42CPz9TjqwI45nvFS6niffBRFyk3',
-                'Access-Control-Allow-Origin': 'https://api.apogeoapi.com'
-            },
-            mode:"no-cors"
+                'X-API-Key': 'apogeoapi_live_hWrP42CPz9TjqwI45nvFS6niffBRFyk3'
+            }
         }
         );
         if(!res.ok){
@@ -100,77 +99,75 @@ function construirRespuesta(datos) {
 
 //#region LocalStorage
 
-//Comprobamos si existe LocalStorage, si no existe lo creamos.
-// if (typeof localStorage === "undefined" || localStorage === null) {
-//     //let LocalStorage = require('node-localstorage').LocalStorage;
-//     let localStorage = new LocalStorage('./almacen');
-// }
+// Comprobamos si existe LocalStorage, si no existe lo creamos.
+if (typeof localStorage === "undefined" || localStorage === null) {
+    //let LocalStorage = require('node-localstorage').LocalStorage;
+    let localStorage = new LocalStorage('./almacen');
+}
 
-// function guardarLocalStorage(listaPaises) {
-//     listaPaises.forEach(element => {
-//         localStorage.setItem(element.iso2, JSON.stringify(element));
-//     })
-// }
-// function borrarLocalStorage(listaPaises) {
-//     listaPaises.forEach(element => {
-//         localStorage.removeItem(element.iso2);
-//     })
-// }
+function guardarLocalStorage(listaPaises) {
+    listaPaises.forEach(element => {
+        localStorage.setItem(element.iso2, JSON.stringify(element));
+    })
+}
+function borrarLocalStorage(listaPaises) {
+    listaPaises.forEach(element => {
+        localStorage.removeItem(element.iso2);
+    })
+}
 
-// function leerLocalStorage() {
-//     let listaPaises = [];
-//     let keys = Object.keys(localStorage);
-//     let i = keys.length;
+function leerLocalStorage() {
+    let listaPaises = [];
+    let keys = Object.keys(localStorage);
+    let i = keys.length;
 
-//     while (i--) {
-//         listaPaises.push(JSON.parse(localStorage.getItem(keys[i])));
-//     }
-//     return listaPaises;
-// }
+    while (i--) {
+        listaPaises.push(JSON.parse(localStorage.getItem(keys[i]) || "[]"));
+    }
+    return listaPaises;
+}
 
-// function limpiarLocalStorage() {
-//     localStorage.clear();
-// }
+function limpiarLocalStorage() {
+    localStorage.clear();
+}
+
+function existeEnLocalStorage(element){
+    const favorites = getFavoritesFromlocalStorage();
+    const oldFavolriteIndex = favorites.findIndex(f=>f.id === element.id);
+    if(oldFavoriteIndex !== -1){
+        favorites.splice(oldFavolriteIndex, 1);Ñ
+        //funcion de guardado
+    }
+}
 
 //#endregion
 
 //#region DOM
 
 function construirHtml(listaPaises) {
-    // listaPaises.finally(() => {
-    //     console.log("Experiment completed");
-
+    let ul = document.getElementById("testUl");
+    let count = 0;
+    listaPaises.forEach(element => {
+        count++;
+        let li = document.createElement("li");
+        let img = document.createElement("img");
+        let p = document.createElement("p");
         
-        
-    // });
-    
-    //const ul = document.getElementById("testUl");
-        let count = 0;
-        listaPaises.forEach(element => {
-            count++;
-            let li = document.createElement("li");
-            let img = document.createElement("img");
-            let p = document.createElement("p");
-            
-            li.setAttribute("id", `li${count}`);
-            img.setAttribute("id", `img${count}`);
-            p.setAttribute("id", `p${count}`);
+        li.setAttribute("id", `li${count}`);
+        img.setAttribute("id", `img${count}`);
+        p.setAttribute("id", `p${count}`);
 
-            img.setAttribute("src", `${element.flagUrl}`);
-            p.appendChild(document.createTextNode(element.name));
+        img.setAttribute("src", `${element.flagUrl}`);
+        p.appendChild(document.createTextNode(element.name));
 
-            ul.appendChild(li);
-            li.appendChild(img);
-            li.appendChild(p);
-        })
+        ul.appendChild(li);
+        li.appendChild(img);
+        li.appendChild(p);
+    })
 }
 
 
 //#endregion
-
-
-console.log(construirHtmlConListaPaises());
-
 //#region Código para pruebas
 
 // async function testLocalStorage() {
