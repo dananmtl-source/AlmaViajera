@@ -25,7 +25,10 @@
     
     import { construirHtmlConListaPaises } from '../../utils/functions.js';
 
-    const html = construirHtmlConListaPaises();
-    document.body.innerHTML = html;
+    const ul = document.getElementById("testUl");
+    const htmlPaises = construirHtmlConListaPaises();
+    if (ul) {
+        ul.innerHTML = htmlPaises;
+    }
 
 </script>
