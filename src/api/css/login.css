@@ -1,22 +1,17 @@
-
-
-
 body {
-    min-width: 320px;
-    margin: 0;
-    background-image: linear-gradient(
-      to bottom,
+  min-width: 320px;
+  margin: 0;
+  background-image: linear-gradient(to bottom,
       rgba(0, 0, 0, 0.65) 0%,
       rgba(0, 0, 0, 0.35) 50%,
-      rgba(0, 0, 0, 0.1) 100%
-    ),
+      rgba(0, 0, 0, 0.1) 100%),
     url("../../assets/images/pexels-diego-agudelo-257100874-13836268.jpg");
-    background-size: cover;
-    padding: 0;
-      background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
+  background-size: cover;
+  padding: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
 }
 
 
@@ -30,7 +25,7 @@ body {
   border: 1px solid #ddd;
   border-radius: 10px;
   background-color: white;
-  box-shadow: inset 2px 2px 2px 1px rgba(0, 0, 0, 0.2); 
+  box-shadow: inset 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   gap: 0.4rem;
 }
 
@@ -82,37 +77,54 @@ body {
   color: #fff;
 }
 
+.loginError {
+  color: red;
+  font-family: var(--fuente-texto);
+}
+
 .options-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 1.5rem;
-        font-family: var(--fuente-texto);
-    }
-    .form-check-input {
-      width: 15px; height: 15px;
-      border: 1.5px solid #cbd5e1;
-      border-radius: 4px;
-      cursor: pointer;
-      margin-top: 0;
-    }
-    .form-check-input:checked {
-      background-color: #3b82f6;
-      border-color: #3b82f6;
-    }
-    .form-check-input:focus { box-shadow: 0 0 0 3px rgba(59,130,246,0.15); }
-    .form-check-label {
-      font-size: .8125rem;
-      color: #64748b;
-      cursor: pointer;
-      padding-left: .2rem;
-    }
-    .forgot-link {
-      font-size: .8125rem;
-      color: #3b82f6;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color .15s;
-      font-family: var(--fuente-texto);
-    }
-    .forgot-link:hover { color: #2563eb; text-decoration: none; }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  font-family: var(--fuente-texto);
+}
+
+.form-check-input {
+  width: 15px;
+  height: 15px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 0;
+}
+
+.form-check-input:checked {
+  background-color: #3b82f6;
+  border-color: #3b82f6;
+}
+
+.form-check-input:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.form-check-label {
+  font-size: .8125rem;
+  color: #64748b;
+  cursor: pointer;
+  padding-left: .2rem;
+}
+
+.forgot-link {
+  font-size: .8125rem;
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color .15s;
+  font-family: var(--fuente-texto);
+}
+
+.forgot-link:hover {
+  color: #2563eb;
+  text-decoration: none;
+}
