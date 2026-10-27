@@ -1,14 +1,3 @@
-// import { FilterUndefinedOrNull } from "./errors.js";
-// import data from '../assets/json/respuesta.json' with { type: "json" };
-
-
-export async function construirHtmlConListaPaises(filtro) {
-    let listaPaises = [];
-    listaPaises = await crearListaPaises(filtro);
-
-    construirHtml(listaPaises);
-}
-
 
 //#region LlamadasAPI
 let countriesCache = new Map();
@@ -32,8 +21,14 @@ class RespuestaDeLasAPIs {
 //Esta función nos puede ser util si necesitamos esperar x tiempo a algún asincrono, llamada con: sleep(1000), el numero es el tiempo en milisegundos.
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-async function crearListaPaises(filtro) {
-    let respuestaAPI = await llamadaRestCountries("argentina");
+export async function crearListaPaisesByName(filtro) {
+    let respuestaAPI = await llamadaRestCountriesByName();
+
+    return construirRespuesta(respuestaAPI.data);
+}
+
+export async function crearListaPaises() {
+    let respuestaAPI = await llamadaRestCountries();
 
     return construirRespuesta(respuestaAPI.data);
 }
@@ -41,7 +36,7 @@ async function crearListaPaises(filtro) {
 //Función encargada de la llamada a la api, devuelve una respuesta con 
 // -data (la información de los paises) 
 // -meta (datos útiles para paginación como numero de elementos)
-async function llamadaRestCountries(filtro) {
+async function llamadaRestCountriesByName(filtro) {
     try {
         const apiUrl = "https://api.apogeoapi.com/v1/countries/search";
         let url = new URL(apiUrl);
@@ -49,6 +44,32 @@ async function llamadaRestCountries(filtro) {
             url.searchParams.set("q",filtro);
         }
         if (countriesCache.size > 0) return countriesCache;
+
+        const res = await fetch(
+            url, {
+            headers: {
+                'X-API-Key': 'apogeoapi_live_hWrP42CPz9TjqwI45nvFS6niffBRFyk3'
+            }
+        }
+        );
+        if(!res.ok){
+            throw new Error(res.statusText);
+        }
+        const data = await res.json();
+        countriesCache = data;
+
+        return data;
+
+    } catch (error) {
+        console.error("Error al llamar a la API: ",error);
+        return error;
+    }
+}
+
+async function llamadaRestCountries() {
+    try {
+        const apiUrl = "https://api.apogeoapi.com/v1/countries";
+        let url = new URL(apiUrl);
 
         const res = await fetch(
             url, {
@@ -99,79 +120,3 @@ function construirRespuesta(datos) {
 
 //#endregion
 
-//#region LocalStorage
-
-// Comprobamos si existe LocalStorage, si no existe lo creamos.
-// if (typeof localStorage === "undefined" || localStorage === null) {
-//     //let LocalStorage = require('node-localstorage').LocalStorage;
-//     let localStorage = new LocalStorage('./almacen');
-// }
-
-// function guardarLocalStorage(listaPaises) {
-//     listaPaises.forEach(element => {
-//         localStorage.setItem(element.iso2, JSON.stringify(element));
-//     })
-// }
-// function borrarLocalStorage(listaPaises) {
-//     listaPaises.forEach(element => {
-//         localStorage.removeItem(element.iso2);
-//     })
-// }
-
-// function leerLocalStorage() {
-//     let listaPaises = [];
-//     let keys = Object.keys(localStorage);
-//     let i = keys.length;
-
-//     while (i--) {
-//         listaPaises.push(JSON.parse(localStorage.getItem(keys[i]) || "[]"));
-//     }
-//     return listaPaises;
-// }
-
-// function limpiarLocalStorage() {
-//     localStorage.clear();
-// }
-
-// function existeEnLocalStorage(element){
-//     const favorites = getFavoritesFromlocalStorage();
-//     const oldFavolriteIndex = favorites.findIndex(f=>f.id === element.id);
-//     if(oldFavoriteIndex !== -1){
-//         favorites.splice(oldFavolriteIndex, 1);Ñ
-//         //funcion de guardado
-//     }
-// }
-
-//#endregion
-
-//#region DOM
-
-// function construirHtml(listaPaises) {
-//     let count = 0;
-//     let ul = document.getElementById("testUl");
-//     listaPaises.forEach(element => {
-//         count++;
-//         let li = document.createElement("li");
-//         let img = document.createElement("img");
-//         let p = document.createElement("p");
-//         let chkbx = document.createElement("input");
-        
-//         li.setAttribute("id", `li${count}`);
-//         img.setAttribute("id", `img${count}`);
-//         p.setAttribute("id", `p${count}`);
-//         chkbx.nodeType('checkbox');
-//         chkbx.setAttribute("type", "checkbox");
-//         chkbx.setAttribute("id", `chkbx${count}`);
-        
-//         img.setAttribute("src", `${element.flag}`);
-//         p.appendChild(document.createTextNode(element.name));
-
-//         ul.appendChild(li);
-//         li.appendChild(img);
-//         li.appendChild(p);
-//         li.appendChild(chkbx);
-//     })
-// }
-
-
-//#endregion
