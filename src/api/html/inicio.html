@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/inicio.css">
     <link rel="icon" type="image/x-icon" href="../assets/img/AlmaViajeraLogo.png">
-    <script src="../../ui/paginator.js" defer></script>
-    <script src="../../index.js" defer></script>
+    <!-- <script src="../../ui/paginator.js" type="module" defer></script> -->
     <title>AlmaViajera</title>
 </head>
 
@@ -54,7 +54,7 @@
                     <option value="">Selecciona un país</option>
                 </select>
             </article>
-            <button type="button" onclick="buscar()">Buscar</button>
+            <button id="buscarPais">Buscar</button>
         </section>
 
         <!-- Favoritos -->
@@ -76,5 +76,7 @@
         <p>Hecho en Bilbao.</p>
     </footer>
 </body>
+<script type="module" src="/src/index.js" defer></script>
+<script type="module" src="/src/localStorage.js" defer></script>
 
 </html>
