@@ -31,7 +31,27 @@ async function cargarDestinos() {
         });
     } catch (error) {
         console.error("No se pudieron mostrar los países", error);
+        const option = document.createElement("option");
+        option.textContent = "No se pudieron cargar los países";
+        option.disabled = true;
+        select.appendChild(option);
     }
+}
+
+function mostrarMensaje(section, mensaje) {
+    const elemento = document.createElement("p");
+    elemento.classList.add("mensaje-busqueda");
+    elemento.setAttribute("role", "status");
+    elemento.textContent = mensaje;
+    section.appendChild(elemento);
+}
+
+function desplazarAResultados(section) {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    section.scrollIntoView({
+        behavior: reduceMotion ? "auto" : "smooth",
+        block: "start",
+    });
 }
 
 function normalizarTexto(texto) {
@@ -79,7 +99,8 @@ async function buscar(event) {
         });
 
         if (resultados.length === 0) {
-            section.textContent = "No se encontraron destinos relacionados con la búsqueda.";
+            mostrarMensaje(section, "No encontramos destinos relacionados con esa búsqueda. Prueba con otro país.");
+            desplazarAResultados(section);
             return;
         }
 
@@ -112,25 +133,35 @@ async function buscar(event) {
                 lugaresTitulo.textContent = "Qué visitar";
 
                 const favoriteButton = document.createElement("button");
-                favoriteButton.setAttribute("id", ciudad.name);
+                favoriteButton.type = "button";
                 const isFavorite = isInFavorites(ciudad.name);
 
                 if (isFavorite) {
                     favoriteButton.classList.add("favorite");
-                    favoriteButton.textContent = "Unlike";
+                    favoriteButton.textContent = "♥ En favoritos";
                 } else {
-                    favoriteButton.textContent = "Like";
+                    favoriteButton.textContent = "♡ Guardar en favoritos";
                 }
+                favoriteButton.setAttribute("aria-pressed", String(isFavorite));
+                favoriteButton.setAttribute(
+                    "aria-label",
+                    `${isFavorite ? "Quitar" : "Añadir"} ${ciudad.name} ${isFavorite ? "de" : "a"} favoritos`
+                );
 
                 favoriteButton.addEventListener("click", () => {
                     const isFavorite = toggleFavorite(ciudad.name);
                     if (isFavorite) {
                         favoriteButton.classList.add("favorite");
-                        favoriteButton.textContent = "Unlike";
+                        favoriteButton.textContent = "♥ En favoritos";
                     } else {
                         favoriteButton.classList.remove("favorite");
-                        favoriteButton.textContent = "Like";
+                        favoriteButton.textContent = "♡ Guardar en favoritos";
                     }
+                    favoriteButton.setAttribute("aria-pressed", String(isFavorite));
+                    favoriteButton.setAttribute(
+                        "aria-label",
+                        `${isFavorite ? "Quitar" : "Añadir"} ${ciudad.name} ${isFavorite ? "de" : "a"} favoritos`
+                    );
                 })
                 tarjeta.append(
                     titulo,
@@ -143,15 +174,17 @@ async function buscar(event) {
                 section.appendChild(tarjeta);
             });
         });
+        desplazarAResultados(section);
     } catch (error) {
         console.error("No se pudieron buscar los destinos", error);
-        section.textContent = "No se pudieron cargar los resultados. Inténtalo de nuevo.";
+        mostrarMensaje(section, "No se pudieron cargar los resultados. Inténtalo de nuevo.");
+        desplazarAResultados(section);
     }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
     cargarDestinos();
-    document.getElementById("buscarPais")?.addEventListener("click", buscar);
+    document.getElementById("formBusqueda")?.addEventListener("submit", buscar);
 });
 
 export { buscar }

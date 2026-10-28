@@ -1,171 +1,299 @@
-
-/* Ajustamos las dimensiones de los elementos */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
-
-/* Estilos generales */
 body {
     min-width: 320px;
     margin: 0;
-    background-color: #f5f7f2;
+    background: #f5f7f2;
 }
 
+.favoritos-main {
+    width: 100%;
+    min-width: 0;
+    padding: 1.25rem clamp(1rem, 4vw, 3rem) 4rem;
+    background: #f5f7f2;
+}
 
-/* Selector de idioma */
-main>#language-switcher {
-    position: absolute;
-    top: 7rem;
-    right: 1rem;
-    display: block;
-    margin: 0;
-    padding: 0.65rem 2rem 0.65rem 0.85rem;
+.favoritos-tools,
+#paises-destacados {
+    width: min(100%, 1200px);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.favoritos-tools {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+}
+
+.favoritos-tools #language-switcher {
+    padding: 0.6rem 2rem 0.6rem 0.85rem;
     border: 1px solid #d8e2e5;
-    border-radius: var(--radio-borde, 8px);
-    background-color: var(--color-blanco, #ffffff);
-    color: var(--color-texto, #333333);
+    border-radius: 999px;
+    background: var(--color-blanco, #ffffff);
+    color: var(--color-principal, #264653);
     font: inherit;
 }
 
-
-/* CONTENEDOR PRINCIPAL */
-
-#paises-destacados {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 24px 16px;
-}
-
-
-/* Título de la sección */
-#paises-destacados h2 {
-    margin: 0 0 24px;
-    text-align: center;
-}
-
-
-/* CONTENEDOR DE TARJETAS */
-
-#lista-favoritos {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
-    width: 100%;
-}
-
-
-/* DISEÑO DE CADA TARJETA */
-
-.caja-pais {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 350px;
-    min-width: 0;
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
     overflow: hidden;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    clip-path: inset(50%);
 }
 
-
-/* Título de la tarjeta */
-.caja-pais h3 {
-    margin: 16px 16px 8px;
+.favoritos-encabezado {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2rem;
+    margin: 2rem 0 1.5rem;
 }
 
-
-/* Información del país */
-.caja-pais p {
-    margin: 0 16px 16px;
-    line-height: 1.5;
+.favoritos-eyebrow {
+    margin: 0 0 0.65rem;
+    color: #6b8f71;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
 }
 
+.favoritos-encabezado h1 {
+    margin: 0;
+    color: var(--color-principal, #264653);
+    font-family: var(--fuente-titulos, Georgia, serif);
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 500;
+    letter-spacing: -0.035em;
+    line-height: 1.1;
+}
 
-/* Botón para quitar de favoritos */
-.caja-pais button {
-    align-self: flex-start;
-    margin: auto 16px 16px;
-    padding: 10px 14px;
-    border: none;
-    border-radius: 6px;
-    background-color: #315b45;
+.favoritos-descripcion {
+    max-width: 610px;
+    margin: 0.8rem 0 0;
+    color: #647276;
+    font-size: 1.02rem;
+    line-height: 1.65;
+}
+
+.explorar-link {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.9rem;
+    padding: 0.7rem 1rem;
+    border: 1px solid var(--color-principal, #264653);
+    border-radius: 999px;
+    background: var(--color-principal, #264653);
     color: #ffffff;
-    cursor: pointer;
+    font: inherit;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-
-/* Efecto al pasar el ratón por el botón */
-.caja-pais button:hover {
-    background-color: #244332;
+.explorar-link:hover {
+    transform: translateY(-1px);
+    background: #1b3540;
 }
 
-
-/* Indicador de foco para navegar con teclado */
-.caja-pais button:focus-visible {
-    outline: 3px solid #b3d6bd;
+.explorar-link:focus-visible,
+.caja-pais button:focus-visible,
+.favoritos-tools #language-switcher:focus-visible {
+    outline: 3px solid #e9c46a;
     outline-offset: 3px;
 }
 
+.contador-favoritos {
+    display: table;
+    margin: 0 0 1rem;
+    padding: 0.4rem 0.75rem;
+    border-radius: 999px;
+    background: #e7eee8;
+    color: var(--color-principal, #264653);
+    font-size: 0.86rem;
+    font-weight: 700;
+}
 
-/* Mensaje cuando no hay favoritos */
-#mensaje-vacio {
-    margin: 32px auto;
+#lista-favoritos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
+    align-items: stretch;
+    gap: 1.25rem;
+}
+
+.caja-pais {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    padding: 1.35rem;
+    border: 1px solid #e0e7e2;
+    border-radius: 18px;
+    background: #ffffff;
+    box-shadow: 0 8px 24px rgb(38 70 83 / 7%);
+    color: var(--color-texto, #333333);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.caja-pais:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgb(38 70 83 / 13%);
+}
+
+.caja-pais-cabecera {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.15rem;
+}
+
+.favorito-bandera {
+    display: grid;
+    width: 3rem;
+    height: 3rem;
+    flex: 0 0 3rem;
+    place-items: center;
+    border-radius: 14px;
+    background: #edf3ee;
+    font-size: 1.7rem;
+}
+
+.favorito-pais {
+    margin: 0;
+    color: #6b7b7e;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+.caja-pais h3 {
+    margin: 0 0 0.6rem;
+    color: var(--color-principal, #264653);
+    font-family: var(--fuente-titulos, Georgia, serif);
+    font-size: 1.55rem;
+}
+
+.caja-pais .favorito-descripcion {
+    margin: 0;
+    color: #5e6b6d;
+    line-height: 1.65;
+}
+
+.favorito-temporada {
+    margin: 1rem 0 0;
+    padding: 0.75rem 0.85rem;
+    border-radius: 10px;
+    background: #f5f7f2;
+    color: #46595d;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.favorito-lugares {
+    margin-top: 1rem;
+}
+
+.favorito-lugares h4 {
+    margin: 0 0 0.6rem;
+    color: var(--color-principal, #264653);
+    font-size: 0.9rem;
+}
+
+.favorito-lugares ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.favorito-lugares li {
+    padding: 0.35rem 0.6rem;
+    border: 1px solid #e0e7e2;
+    border-radius: 999px;
+    color: #5e6b6d;
+    font-size: 0.78rem;
+}
+
+.caja-pais button {
+    align-self: flex-start;
+    margin-top: auto;
+    padding: 0.65rem 0;
+    border: 0;
+    background: transparent;
+    color: #a44c49;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.caja-pais button:hover {
+    color: #7e302d;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.estado-vacio {
+    display: grid;
+    min-height: 300px;
+    justify-items: center;
+    align-content: center;
+    margin-top: 1.5rem;
+    padding: 2rem;
+    border: 1px dashed #cbd9ce;
+    border-radius: 20px;
+    background: rgb(255 255 255 / 68%);
     text-align: center;
+}
+
+.estado-vacio[hidden] {
+    display: none;
+}
+
+.estado-vacio-icono {
+    display: grid;
+    width: 3.5rem;
+    height: 3.5rem;
+    place-items: center;
+    margin-bottom: 1rem;
+    border-radius: 50%;
+    background: #e7eee8;
+    color: #6b8f71;
+    font-size: 1.7rem;
+}
+
+.estado-vacio h2 {
+    margin: 0;
+    color: var(--color-principal, #264653);
+    font-family: var(--fuente-titulos, Georgia, serif);
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.estado-vacio p {
+    max-width: 460px;
+    margin: 0.65rem 0 1.25rem;
+    color: #647276;
     line-height: 1.6;
 }
 
-
-/* TABLETAS */
-
-@media (min-width: 481px) {
-
-    #paises-destacados {
-        padding: 32px 24px;
-    }
-
-    #lista-favoritos {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: stretch;
-        gap: 24px;
-    }
-
-    .caja-pais {
-        flex: 0 1 calc(50% - 12px);
-        max-width: 350px;
-    }
-
+.favoritos-error {
+    padding: 1rem;
+    border: 1px solid #e6c6c3;
+    border-radius: 12px;
+    background: #fff7f6;
+    color: #7e302d;
 }
 
-
-/* ORDENADORES */
-
-@media (min-width: 768px) {
-
-    #paises-destacados {
-        padding: 40px 24px;
-    }
-
-    .caja-pais {
-        flex-basis: 300px;
-    }
-
-}
-
-/* Footer */
 .footer {
     width: 100%;
     margin: 0;
     padding: 1.5rem 1rem;
-    background-color: var(--color-principal, #264653);
-    color: var(--color-blanco, #ffffff);
+    background: var(--color-principal, #264653);
+    color: #ffffff;
     text-align: center;
     font-family: var(--fuente-texto, Arial, sans-serif);
 }
@@ -193,12 +321,28 @@ main>#language-switcher {
     margin: 0.35rem 0;
 }
 
-@media (max-width: 480px) {
-    main > section:first-of-type {
-        flex-direction: column;
+@media (max-width: 640px) {
+    .favoritos-main {
+        padding: 0.75rem 1rem 3rem;
     }
 
-    #buscarPais {
+    .favoritos-encabezado {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 1.1rem;
+        margin-top: 1.5rem;
+    }
+
+    .explorar-link {
         width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
     }
 }
