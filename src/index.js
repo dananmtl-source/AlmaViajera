@@ -1,6 +1,5 @@
 import { isInFavorites, toggleFavorite} from "./localStorage.js";
 
-// import rutaDatos from "./assets/json/respuesta.json" with { type: "json" };
 
 async function cargarDatos() {
     const respuesta = await fetch("/src/assets/json/respuesta.json");
@@ -113,8 +112,8 @@ async function buscar(event) {
                 lugaresTitulo.textContent = "Qué visitar";
 
                 const favoriteButton = document.createElement("button");
-                favoriteButton.setAttribute("id", ciudad);
-                const isFavorite = isInFavorites(ciudad);
+                favoriteButton.setAttribute("id", ciudad.name);
+                const isFavorite = isInFavorites(ciudad.name);
 
                 if (isFavorite) {
                     favoriteButton.classList.add("favorite");

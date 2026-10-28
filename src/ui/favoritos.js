@@ -2,7 +2,6 @@
 // Importamos las funciones que necesitamos para gestionar los favoritos.
 import {
     getFavoritesFromLocalStorage,
-    removeFavorite
 } from "../localStorage.js";
 
 
@@ -39,7 +38,7 @@ function mostrarFavoritos() {
         const titulo = document.createElement("h3");
 
         titulo.textContent =
-            `${pais.datos?.flagEmoji ?? ""} ${pais.name}`.trim();
+            `${pais.datos?.flagEmoji ?? ""} ${pais.nombre}`.trim();
 
         // Mostramos la capital.
         const capital = document.createElement("p");
