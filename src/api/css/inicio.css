@@ -1,34 +1,133 @@
+/* Variables de colores y tipografías */
+:root {
+    --color-principal: #264653;
+    --color-secundario: #264653;;
+    --color-texto: #333333;
+    --color-blanco: #ffffff;
+
+    --fuente-titulos: Georgia, serif;
+    --fuente-texto: Arial, sans-serif;
+
+    --espacio-pequeno: 0.5rem;
+    --espacio-medio: 1rem;
+    --espacio-grande: 2rem;
+
+    --radio-borde: 8px;
+}
+
+/* Contenido de inicio */
+body.gridBase {
+    margin: 0;
+}
+
+main {
+    width: 100%;
+    min-width: 0;
+    padding: clamp(1.5rem, 5vw, 3.5rem) 1rem;
+    background-color: #f5f7f2;
+}
+
+main > #language-switcher {
+    display: block;
+    margin: 0 0 1.5rem auto;
+    padding: 0.65rem 2rem 0.65rem 0.85rem;
+    border: 1px solid #d8e2e5;
+    border-radius: var(--radio-borde, 8px);
+    background-color: var(--color-blanco, #ffffff);
+    color: var(--color-texto, #333333);
+    font: inherit;
+}
+
+main > section:first-of-type {
+    display: flex;
+    align-items: stretch;
+    gap: 0.75rem;
+    width: min(100%, 48rem);
+    margin: 0 auto;
+    padding: 0.75rem;
+    border: 1px solid #d8e2e5;
+    border-radius: calc(var(--radio-borde, 8px) + 4px);
+    background-color: var(--color-blanco, #ffffff);
+    box-shadow: 0 4px 16px rgb(38 70 83 / 10%);
+}
+
+.buscador {
+    flex: 1;
+    min-width: 0;
+}
+
+#destino {
+    width: 100%;
+    min-height: 3rem;
+    padding: 0.65rem 0.85rem;
+    border: 1px solid #d8e2e5;
+    border-radius: var(--radio-borde, 8px);
+    background-color: var(--color-blanco, #ffffff);
+    color: var(--color-texto, #333333);
+    font: inherit;
+}
+
+#buscarPais {
+    min-height: 3rem;
+    padding: 0.65rem 1.25rem;
+    border: 1px solid var(--color-principal, #264653);
+    border-radius: var(--radio-borde, 8px);
+    background-color: var(--color-principal, #264653);
+    color: var(--color-blanco, #ffffff);
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+#buscarPais:hover {
+    background-color: #1b3540;
+}
+
+#buscarPais:active {
+    transform: translateY(1px);
+}
+
+#destino:focus-visible,
+#buscarPais:focus-visible,
+main > #language-switcher:focus-visible {
+    outline: 3px solid #e9c46a;
+    outline-offset: 2px;
+}
+
 /* Tarjetas */
 #resultadosDestinos {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
     gap: 1.25rem;
-    margin: 2rem auto;
-    padding: 0 1rem;
-    max-width: 1200px;
+    width: min(100%, 1200px);
+    margin: 2.5rem auto 0;
 }
 
 #resultadosDestinos > h2 {
     grid-column: 1 / -1;
-    margin: 0;
+    margin: 0.5rem 0 0;
     color: var(--color-principal, #264653);
-    font-family: var(--fuente-titulos, Georgia, serif);
+    font-family: var(--fuente-titulos);
 }
 
 #resultadosDestinos .destino {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.75rem;
     padding: 1.25rem;
     background-color: var(--color-blanco, #ffffff);
     border: 1px solid #d8e2e5;
     border-radius: var(--radio-borde, 8px);
     box-shadow: 0 4px 12px rgb(38 70 83 / 10%);
     color: var(--color-texto, #333333);
-    font-family: var(--fuente-texto, Arial, sans-serif);
+    font-family: var(--fuente-texto);
 }
 
 #resultadosDestinos .destino h3 {
     margin: 0 0 0.75rem;
     color: var(--color-principal, #264653);
-    font-family: var(--fuente-titulos, Georgia, serif);
+    font-family: var(--fuente-titulos);
 }
 
 #resultadosDestinos .destino p {
@@ -46,7 +145,8 @@
 }
 
 /* Botón de favoritos */
-.btn-like {
+.btn-like,
+#resultadosDestinos .destino button {
     align-self: flex-start;
     margin-top: 1rem;
     padding: 0.55rem 0.85rem;
@@ -58,12 +158,62 @@
     cursor: pointer;
 }
 
-.btn-like[aria-pressed="true"] {
+#resultadosDestinos .destino button {
+    margin-top: auto;
+}
+
+.btn-like[aria-pressed="true"],
+#resultadosDestinos .destino button.favorite {
     background-color: var(--color-principal, #264653);
     color: var(--color-blanco, #ffffff);
 }
 
-.btn-like:focus-visible {
+.btn-like:focus-visible,
+#resultadosDestinos .destino button:focus-visible {
     outline: 3px solid #e9c46a;
     outline-offset: 2px;
+}
+
+/* Footer */
+.footer {
+    width: 100%;
+    margin: 0;
+    padding: 1.5rem 1rem;
+    background-color: var(--color-principal, #264653);
+    color: var(--color-blanco, #ffffff);
+    text-align: center;
+    font-family: var(--fuente-texto);
+}
+
+.footer nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.footer nav a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer nav a:hover,
+.footer nav a:focus-visible {
+    color: #e9c46a;
+}
+
+.footer p {
+    margin: 0.35rem 0;
+}
+
+@media (max-width: 480px) {
+    main > section:first-of-type {
+        flex-direction: column;
+    }
+
+    #buscarPais {
+        width: 100%;
+    }
 }

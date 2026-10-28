@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="icon" type="image/x-icon" href="/assets/img/AlmaViajeraLogo.png">
-    <script src="../../ui/index.js"></script>
-    <script src="../../index.js"></script>
+    <link rel="stylesheet" href="../css/inicio.css">
+    <link rel="icon" type="image/x-icon" href="../assets/img/AlmaViajeraLogo.png">
+    <!-- <script src="../../ui/paginator.js" type="module" defer></script> -->
     <title>AlmaViajera</title>
+    <script src="../../utils/auth.js"></script>
+
 </head>
 
 <body class="gridBase">
@@ -16,7 +18,7 @@
     <!-- Cabecera -->
     <header class="cabecera">
         <!-- Logo de la web -->
-        <a href="index.html" class="identidad">
+        <a href="inicio.html" class="identidad">
             <img src="../../assets/images/AlmaViajeraLogo.png" alt="Logo de AlmaViajera">
             <span class="logo">AlmaViajera</span>
         </a>
@@ -24,14 +26,14 @@
         <!-- Menú de navegación -->
         <nav class="menu" aria-label="Navegación principal">
             <a href="inicio.html">Inicio</a>
-            <a href="viajes.html">Viajes</a>
+            <a href="favoritos.html">Favoritos</a>
             <a href="cuenta.html">Mi cuenta</a>
         </nav>
-
-        <!-- Acceso a la lista personal de viajes -->
-        <a href="mi-viaje.html" class="boton-viaje">
-            Mi viaje
-        </a>
+<!-- Cerrar sesión -->
+<a href="../../../index.html" id="logout" class="boton-viaje">
+    Cerrar sesión
+</a>
+      
     </header>
 
 
