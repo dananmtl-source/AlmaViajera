@@ -2,6 +2,7 @@
 // Importamos las funciones que necesitamos para gestionar los favoritos.
 import {
     getFavoritesFromLocalStorage,
+
 } from "../localStorage.js";
 
 
@@ -38,7 +39,7 @@ function mostrarFavoritos() {
         const titulo = document.createElement("h3");
 
         titulo.textContent =
-            `${pais.datos?.flagEmoji ?? ""} ${pais.nombre}`.trim();
+            `${pais.datos?.flagEmoji ?? ""} ${pais.name}`.trim();
 
         // Mostramos la capital.
         const capital = document.createElement("p");
@@ -54,7 +55,6 @@ function mostrarFavoritos() {
 
         // Eliminamos el país cuando se pulsa el botón.
         botonEliminar.addEventListener("click", function () {
-
             removeFavorite(pais);
 
             // Actualizamos las tarjetas y el mensaje.
