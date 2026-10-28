@@ -30,7 +30,7 @@ function removeFavorite(element){
 
 function toggleFavorite(element){
     const favorites = getFavoritesFromLocalStorage();
-    const oldFavoriteIndex = favorites.findIndex(f=>f == element.name);
+    const oldFavoriteIndex = favorites.findIndex(f=>f == element);
     let result = false;
     if(oldFavoriteIndex === -1){
         favorites.push(element);
@@ -44,7 +44,7 @@ function toggleFavorite(element){
 
 function isInFavorites(element){
     const favorites = getFavoritesFromLocalStorage();
-    const oldFavorite = favorites.find(f=>f == element.name);
+    const oldFavorite = favorites.find(f=>f == element);
     if(oldFavorite){
         return true;
     }else{
