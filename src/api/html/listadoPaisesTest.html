@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Pruebas Api/LocalStorage</h1>
+    </header>
+    <article>
+        <section id="testSection">
+            <ul id="testUl">
+
+            </ul>
+        </section>
+    </article>
+    
+</body>
+</html>
+
+<script type="module">
+    
+    import { construirHtmlConListaPaises } from '../../utils/functions.js';
+
+    const ul = document.getElementById("testUl");
+    const htmlPaises = construirHtmlConListaPaises();
+    if (ul) {
+        ul.innerHTML = htmlPaises;
+    }
+
+</script>
