@@ -2,88 +2,131 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/inicio.css">
-    <link rel="icon" type="image/x-icon" href="../assets/img/AlmaViajeraLogo.png">
-    <!-- <script src="../../ui/paginator.js" type="module" defer></script> -->
-    <title>AlmaViajera</title>
-    <script src="../../utils/auth.js"></script>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/cuenta.css">
+  <link rel="icon" type="image/x-icon" href="../assets/img/AlmaViajeraLogo.png">
+  <title>Mi cuenta | AlmaViajera</title>
+  <script src="../../utils/auth.js"></script>
 </head>
 
-<body class="gridBase">
-
-    <!-- Cabecera -->
-    <header class="cabecera">
-        <!-- Logo de la web -->
-        <a href="inicio.html" class="identidad">
-            <img src="../../assets/images/AlmaViajeraLogo.png" alt="Logo de AlmaViajera">
-            <span class="logo">AlmaViajera</span>
-        </a>
-
-        <!-- Menú de navegación -->
-        <nav class="menu" aria-label="Navegación principal">
-            <a href="inicio.html">Inicio</a>
-            <a href="favoritos.html">Favoritos</a>
-            <a href="cuenta.html">Mi cuenta</a>
-        </nav>
-        <!-- Cerrar sesión -->
-        <a href="../../../index.html" id="logout" class="boton-viaje">
-            Cerrar sesión
-        </a>
-
-    </header>
+<body class="gridBase pagina-cuenta">
 
 
-    <!-- Contenido -->
-    <main>
-        <!-- Idioma -->
-        <select id="language-switcher" aria-label="Selección de idioma">
-            <details class="language-selector">
-                <summary class="menu-toggle">Elegir idioma</summary>
-                <option value="es">ES</option>
-                <option value="en">EN</option>
-            </details>
+
+  <header class="cabecera">
+    <a href="inicio.html" class="identidad">
+      <img src="../../assets/images/AlmaViajeraLogo.png" alt="Logo de AlmaViajera">
+      <span class="logo">AlmaViajera</span>
+    </a>
+   <nav class="menu" aria-label="Navegación principal">
+      <a href="inicio.html">Inicio</a>
+      <a href="favoritos.html">Favoritos</a>
+      <a href="cuenta.html" aria-current="page">Mi cuenta</a>
+    </nav>
+
+   
+    <a href="../../../index.html" id="logout" class="boton-viaje">
+      Cerrar sesión
+    </a>
+  </header>
+
+  <!-- Contenido -->
+  <main class="cuenta">
+    <div class="cuenta-intro">
+      <p class="cuenta-etiqueta">Tu espacio personal</p>
+      <h1>Mi cuenta</h1>
+      <p>Gestiona tu perfil y prepara tu próxima aventura.</p>
+    </div>
+
+    <!-- Perfil -->
+    <section class="panel perfil" aria-labelledby="titulo-perfil">
+      <h2 id="titulo-perfil">Perfil</h2>
+      <img id="avatar" class="avatar" src="../.../assets/images/images.jpeg" alt="Foto de perfil">    
+      <div>
+        <p id="nombre-usuario" class="perfil-nombre"></p>
+        <p id="email-usuario" class="perfil-email"></p>
+        <label for="foto" class="boton-secundario">Cambiar foto</label>
+        <input type="file" id="foto" name="foto" accept="image/*" hidden>
+      </div>
+    </section>
+
+    <!-- Datos personales -->
+    <section class="panel cuenta-panel" aria-labelledby="titulo-datos">
+      <h2 id="titulo-datos">Datos personales</h2>
+      <form id="form-datos" class="formulario">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="apellidos">Apellidos</label>
+        <input type="text" id="apellidos" name="apellidos">
+
+        <label for="email">Correo electrónico</label>
+        <input type="email" id="email" name="email" required>
+
+
+        <button type="submit" class="boton-viaje">Guardar cambios</button>
+      </form>
+    </section>
+
+    <!-- Preferencias -->
+    <section class="panel cuenta-panel" aria-labelledby="titulo-preferencias">
+      <h2 id="titulo-preferencias">Preferencias</h2>
+      <form id="form-preferencias" class="formulario">
+        <label for="idioma">Idioma</label>
+        <select id="idioma" name="idioma">
+          <option value="es">Español</option>
+          <option value="en">English</option>
         </select>
 
-        <!-- Favoritos (se podrían agrupar por ciudades o países)-->
-        <section>
-            <article class="favoritos">
-                <!-- <label for="destino"> Destino: </label>
-                <input type="text" id="destino" class="destino" placeholder="Barcelona" />
-                <button class="" filter></button> -->
-                <select id="destino">
-                    <option value="">Selecciona un país</option>
-                </select>
-            </article>
-        </section>
 
-        <!-- Visitados -->
-        <section class="visitados">
-            <h2>Favoritos</h2>
-            <article class="card">
-                <h3 class="nombreLugar"></h3>
-                <p class="textoTarjeta"></p>
-                <input type="button" class="verMas" value="Ver más" />
-            </article>
-        </section>
-    </main>
+        <label for="tema">Tema</label>
+        <select id="tema" name="tema">
+          <option value="claro">Claro</option>
+          <option value="oscuro">Oscuro</option>
+        </select>
 
-    <!-- Footer -->
+
+        <button type="submit" class="boton-viaje">Guardar preferencias</button>
+      </form>
+    </section>
+
+    <!-- Seguridad -->
+    <section class="panel cuenta-panel" aria-labelledby="titulo-seguridad">
+      <h2 id="titulo-seguridad">Seguridad</h2>
+      <form id="form-password" class="formulario">
+        <label for="password-actual">Contraseña actual</label>
+        <input type="password" id="password-actual" name="password-actual"
+               autocomplete="current-password" required>
+
+        <label for="password-nueva">Nueva contraseña</label>
+        <input type="password" id="password-nueva" name="password-nueva"
+               autocomplete="new-password" minlength="8" required>
+
+        <label for="password-repetir">Repetir nueva contraseña</label>
+        <input type="password" id="password-repetir" name="password-repetir"
+               autocomplete="new-password" minlength="8" required>
+
+        <p id="mensaje-password" role="alert"></p>
+        <button type="submit" class="boton-viaje">Cambiar contraseña</button>
+      </form>
+    </section>
+
+    <!-- Pie de página -->
     <footer class="footer">
 
-        <nav>
-            <a href="https://instagram.com" target="_blank">Instagram</a>
+        <nav aria-label="Enlaces del pie de página">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
             <a href="#">Política de privacidad</a>
             <a href="#">Descubre</a>
             <a href="#">Ayuda</a>
-
         </nav>
+
         <p>© 2026 AlmaViajera.</p>
         <p>Hecho en Bilbao.</p>
-    </footer>
-</body>
 
+    </footer>
+
+</body>
 </html>
