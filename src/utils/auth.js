@@ -15,3 +15,14 @@ function cerrarSesion() {
 if (!obtenerSesion()) {
   window.location.replace("../../../index.html");
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const logout = document.getElementById("logout");
+
+  if (logout) {
+    logout.addEventListener("click", (event) => {
+      event.preventDefault();
+      cerrarSesion();
+    });
+  }
+});
