@@ -39,7 +39,7 @@
     <!-- Perfil -->
     <section class="perfil" aria-labelledby="titulo-perfil">
       <h2 id="titulo-perfil">Perfil</h2>
-      <img id="avatar" class="avatar" src="../assets/img/avatar-default.png" alt="Foto de perfil">
+      <img id="avatar" class="avatar" src="../.../assets/images/images.jpeg" alt="Foto de perfil">    
       <div>
         <p id="nombre-usuario" class="perfil-nombre"></p>
         <p id="email-usuario" class="perfil-email"></p>
@@ -47,15 +47,8 @@
         <input type="file" id="foto" name="foto" accept="image/*" hidden>
       </div>
     </section>
-
-    <!-- Estadísticas -->
-    <section class="estadisticas" aria-labelledby="titulo-estadisticas">
-      <h2 id="titulo-estadisticas">Mi actividad</h2>
-      <ul class="estadisticas-lista">
-        <li><strong id="total-favoritos">0</strong> <span>Favoritos</span></li>
-        <li><strong id="total-paises">0</strong> <span>Países visitados</span></li>
-        <li><strong id="total-ciudades">0</strong> <span>Ciudades</span></li>
-      </ul>
+    
+  
     </section>
 
     <!-- Datos personales -->
@@ -71,13 +64,6 @@
         <label for="email">Correo electrónico</label>
         <input type="email" id="email" name="email" required>
 
-        <label for="pais">País de residencia</label>
-        <select id="pais" name="pais">
-          <option value="">Selecciona un país</option>
-        </select>
-
-        <label for="bio">Sobre mí</label>
-        <textarea id="bio" name="bio" rows="3" maxlength="200"></textarea>
 
         <button type="submit" class="boton-viaje">Guardar cambios</button>
       </form>
@@ -93,12 +79,6 @@
           <option value="en">English</option>
         </select>
 
-        <label for="moneda">Moneda</label>
-        <select id="moneda" name="moneda">
-          <option value="EUR">Euro (€)</option>
-          <option value="USD">Dólar (US$)</option>
-          <option value="ARS">Peso argentino ($)</option>
-        </select>
 
         <label for="tema">Tema</label>
         <select id="tema" name="tema">
@@ -106,11 +86,6 @@
           <option value="oscuro">Oscuro</option>
         </select>
 
-        <fieldset>
-          <legend>Notificaciones</legend>
-          <label><input type="checkbox" name="notif-email" checked> Novedades por correo</label>
-          <label><input type="checkbox" name="notif-ofertas"> Ofertas de viaje</label>
-        </fieldset>
 
         <button type="submit" class="boton-viaje">Guardar preferencias</button>
       </form>

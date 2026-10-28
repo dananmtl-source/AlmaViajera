@@ -1,7 +1,7 @@
 /* Variables de colores y tipografías */
 :root {
     --color-principal: #264653;
-    --color-secundario: #264653;;
+    --color-secundario: #264653;
     --color-texto: #333333;
     --color-blanco: #ffffff;
 
@@ -27,9 +27,12 @@ main {
     background-color: #f5f7f2;
 }
 
-main > #language-switcher {
+main>#language-switcher {
+    position: absolute;
+    top: 7rem;
+    right: 1rem;
     display: block;
-    margin: 0 0 1.5rem auto;
+    margin: 0;
     padding: 0.65rem 2rem 0.65rem 0.85rem;
     border: 1px solid #d8e2e5;
     border-radius: var(--radio-borde, 8px);
@@ -38,7 +41,7 @@ main > #language-switcher {
     font: inherit;
 }
 
-main > section:first-of-type {
+main>section:first-of-type {
     display: flex;
     align-items: stretch;
     gap: 0.75rem;
@@ -90,7 +93,7 @@ main > section:first-of-type {
 
 #destino:focus-visible,
 #buscarPais:focus-visible,
-main > #language-switcher:focus-visible {
+main>#language-switcher:focus-visible {
     outline: 3px solid #e9c46a;
     outline-offset: 2px;
 }
@@ -104,7 +107,7 @@ main > #language-switcher:focus-visible {
     margin: 2.5rem auto 0;
 }
 
-#resultadosDestinos > h2 {
+#resultadosDestinos>h2 {
     grid-column: 1 / -1;
     margin: 0.5rem 0 0;
     color: var(--color-principal, #264653);
@@ -209,7 +212,7 @@ main > #language-switcher:focus-visible {
 }
 
 @media (max-width: 480px) {
-    main > section:first-of-type {
+    main>section:first-of-type {
         flex-direction: column;
     }
 

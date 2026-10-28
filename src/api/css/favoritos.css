@@ -16,13 +16,18 @@ body {
 
 
 /* Selector de idioma */
-#language-switcher {
+main>#language-switcher {
+    position: absolute;
+    top: 7rem;
+    right: 1rem;
     display: block;
-    margin: 20px 24px 0 auto;
-    padding: 8px 12px;
-    border: 1px solid #d5dcd0;
-    border-radius: 6px;
-    background-color: #ffffff;
+    margin: 0;
+    padding: 0.65rem 2rem 0.65rem 0.85rem;
+    border: 1px solid #d8e2e5;
+    border-radius: var(--radio-borde, 8px);
+    background-color: var(--color-blanco, #ffffff);
+    color: var(--color-texto, #333333);
+    font: inherit;
 }
 
 

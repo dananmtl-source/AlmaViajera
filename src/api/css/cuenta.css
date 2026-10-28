@@ -1,7 +1,7 @@
 .cuenta {
-    max-width: 720px;
+    width: 100%;
     margin: 0 auto;
-    padding: var(--espacio-grande) var(--espacio-medio);
+    padding: var(--espacio-grande);
 
     display: grid;
     grid-template-columns: 1fr;
