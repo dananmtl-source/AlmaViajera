@@ -1,5 +1,8 @@
-import { getFavoritesFromLocalStorage, toggleFavorite } from "../localStorage.js";
+// Importamos las funciones que necesitamos para gestionar los favoritos.
+import { isInFavorites, toggleFavorite, getFavoritesFromLocalStorage } from "../localStorage.js";
 
+
+// Buscamos los elementos del HTML.
 const listaFavoritos = document.getElementById("lista-favoritos");
 const contadorFavoritos = document.getElementById("contador-favoritos");
 const mensajeVacio = document.getElementById("mensaje-vacio");
