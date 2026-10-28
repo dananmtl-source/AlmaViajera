@@ -11,7 +11,7 @@
   <script src="../../utils/auth.js"></script>
 </head>
 
-<body class="gridBase">
+<body class="gridBase pagina-cuenta">
 
 
 
@@ -34,10 +34,14 @@
 
   <!-- Contenido -->
   <main class="cuenta">
-    <h1>Mi cuenta</h1>
+    <div class="cuenta-intro">
+      <p class="cuenta-etiqueta">Tu espacio personal</p>
+      <h1>Mi cuenta</h1>
+      <p>Gestiona tu perfil y prepara tu próxima aventura.</p>
+    </div>
 
     <!-- Perfil -->
-    <section class="perfil" aria-labelledby="titulo-perfil">
+    <section class="panel perfil" aria-labelledby="titulo-perfil">
       <h2 id="titulo-perfil">Perfil</h2>
       <img id="avatar" class="avatar" src="../.../assets/images/images.jpeg" alt="Foto de perfil">    
       <div>
@@ -47,12 +51,9 @@
         <input type="file" id="foto" name="foto" accept="image/*" hidden>
       </div>
     </section>
-    
-  
-    </section>
 
     <!-- Datos personales -->
-    <section aria-labelledby="titulo-datos">
+    <section class="panel cuenta-panel" aria-labelledby="titulo-datos">
       <h2 id="titulo-datos">Datos personales</h2>
       <form id="form-datos" class="formulario">
         <label for="nombre">Nombre</label>
@@ -70,7 +71,7 @@
     </section>
 
     <!-- Preferencias -->
-    <section aria-labelledby="titulo-preferencias">
+    <section class="panel cuenta-panel" aria-labelledby="titulo-preferencias">
       <h2 id="titulo-preferencias">Preferencias</h2>
       <form id="form-preferencias" class="formulario">
         <label for="idioma">Idioma</label>
@@ -92,7 +93,7 @@
     </section>
 
     <!-- Seguridad -->
-    <section aria-labelledby="titulo-seguridad">
+    <section class="panel cuenta-panel" aria-labelledby="titulo-seguridad">
       <h2 id="titulo-seguridad">Seguridad</h2>
       <form id="form-password" class="formulario">
         <label for="password-actual">Contraseña actual</label>
