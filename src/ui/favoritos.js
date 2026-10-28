@@ -1,8 +1,6 @@
-
 // Importamos las funciones que necesitamos para gestionar los favoritos.
 import {
     getFavoritesFromLocalStorage,
-    removeFavorite
 } from "../localStorage.js";
 
 
@@ -29,8 +27,8 @@ function mostrarFavoritos() {
     // Si hay favoritos, ocultamos el mensaje.
     mensajeVacio.style.display = "none";
 
-    // Creamos una tarjeta por cada país guardado.
-    favoritos.forEach(function (pais) {
+    // Creamos una tarjeta por cada ciudad guardada.
+    favoritos.forEach(function (ciudad) {
 
         const tarjeta = document.createElement("article");
         tarjeta.classList.add("caja-pais");
@@ -39,28 +37,29 @@ function mostrarFavoritos() {
         const titulo = document.createElement("h3");
 
         titulo.textContent =
-            `${pais.datos?.flagEmoji ?? ""} ${pais.name}`.trim();
+            `${pais.datos?.flagEmoji ?? ""} ${pais.nombre}`.trim();
 
-        // Mostramos la capital.
+        // Mostramos los ciudades.
         const capital = document.createElement("p");
 
         capital.textContent =
-            "Capital: " + (pais.datos?.capital || "No disponible");
+            "Ciudad: " + (ciudad || "No disponible");
 
         // Creamos el botón para quitar el país de favoritos.
         const botonEliminar = document.createElement("button");
+          botonEliminar.setAttribute("id", ciudad);
 
         botonEliminar.type = "button";
         botonEliminar.textContent = "Quitar de favoritos";
 
         // Eliminamos el país cuando se pulsa el botón.
         botonEliminar.addEventListener("click", function () {
+
             removeFavorite(pais);
 
             // Actualizamos las tarjetas y el mensaje.
             mostrarFavoritos();
-        });
-
+        })
         // Añadimos los elementos a la tarjeta.
         tarjeta.append(titulo, capital, botonEliminar);
 
@@ -71,4 +70,6 @@ function mostrarFavoritos() {
 
 
 // Mostramos los favoritos al entrar en la página.
-mostrarFavoritos();
+document.addEventListener("DOMContentLoaded", () => {
+    mostrarFavoritos();
+});

@@ -36,11 +36,26 @@
     align-items: center;
      min-height: 100px;
     gap: var(--espacio-medio);
-
     padding: var(--espacio-medio);
     background-color: var(--color-blanco);
-    
-    
+}
+
+.login-page main {
+    position: relative;
+}
+
+.login-page #language-switcher {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: block;
+    margin: 0;
+    padding: 0.65rem 2rem 0.65rem 0.85rem;
+    border: 1px solid #d8e2e5;
+    border-radius: var(--radio-borde, 8px);
+    background-color: var(--color-blanco, #ffffff);
+    color: var(--color-texto, #333333);
+    font: inherit;
 }
 
 /* Logo y nombre de AlmaViajera */
