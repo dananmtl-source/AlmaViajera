@@ -1,25 +1,22 @@
 
-// Importamos las funciones que gestionan los favoritos.
+// Importamos las funciones que necesitamos para gestionar los favoritos.
 import {
     getFavoritesFromLocalStorage,
-    removeFavorite
-} from "../api/favoritosStorage.js";
+} from "../localStorage.js";
 
 
-// Buscamos el contenedor donde mostraremos los países favoritos.
+// Buscamos los elementos del HTML.
 const listaFavoritos = document.getElementById("lista-favoritos");
-
-// Buscamos el mensaje que aparece cuando no hay favoritos.
 const mensajeVacio = document.getElementById("mensaje-vacio");
 
 
 // Mostramos los países favoritos en pantalla.
 function mostrarFavoritos() {
 
-    // Recuperamos los países guardados.
+    // Recuperamos los países guardados en localStorage.
     const favoritos = getFavoritesFromLocalStorage();
 
-    // Limpiamos el contenedor antes de crear las tarjetas.
+    // Limpiamos las tarjetas anteriores.
     listaFavoritos.replaceChildren();
 
     // Si no hay favoritos, mostramos el mensaje y terminamos.
@@ -31,13 +28,10 @@ function mostrarFavoritos() {
     // Si hay favoritos, ocultamos el mensaje.
     mensajeVacio.style.display = "none";
 
-    // Recorremos los países guardados.
-    favoritos.forEach(function(pais) {
+    // Creamos una tarjeta por cada país guardado.
+    favoritos.forEach(function (pais) {
 
-        // Creamos una tarjeta para cada país.
         const tarjeta = document.createElement("article");
-
-        // Aplicamos los estilos definidos en favoritos.css.
         tarjeta.classList.add("caja-pais");
 
         // Mostramos la bandera y el nombre del país.
@@ -58,19 +52,19 @@ function mostrarFavoritos() {
         botonEliminar.type = "button";
         botonEliminar.textContent = "Quitar de favoritos";
 
-        // Al pulsar el botón, eliminamos el país.
-        botonEliminar.addEventListener("click", function() {
+        // Eliminamos el país cuando se pulsa el botón.
+        botonEliminar.addEventListener("click", function () {
 
             removeFavorite(pais);
 
-            // Volvemos a mostrar la lista actualizada.
+            // Actualizamos las tarjetas y el mensaje.
             mostrarFavoritos();
         });
 
-        // Añadimos el contenido a la tarjeta.
+        // Añadimos los elementos a la tarjeta.
         tarjeta.append(titulo, capital, botonEliminar);
 
-        // Añadimos la tarjeta al contenedor.
+        // Mostramos la tarjeta en el HTML.
         listaFavoritos.appendChild(tarjeta);
     });
 }
