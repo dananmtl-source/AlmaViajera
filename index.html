@@ -14,7 +14,7 @@
     <title>AlmaViajera</title>
 </head>
 
-<body class="gridBase">
+<body class="gridBase login-page">
 
     <!-- Cabecera -->
     <header class="cabecera">
@@ -24,30 +24,27 @@
             <span class="logo">AlmaViajera</span>
         </a>
 
-        
+
         <!-- Menú de navegación -->
         <nav class="menu" aria-label="Navegación principal">
             <a href="src/api/html/inicio.html">Inicio</a>
             <a href="src/api/html/favoritos.html">Favoritos</a>
             <a href="src/api/html/cuenta.html">Mi cuenta</a>
         </nav>
-        
+
         <!-- Espacio del botón de cerrar sesión (invisible, solo para mantener el tamaño del header) -->
         <a href="#" style="visibility:hidden;">
             Cerrar sesión
         </a>
-        
+
     </header>
 
     <!-- Login -->
     <main>
         <!-- Idioma -->
         <select id="language-switcher" aria-label="Selección de idioma">
-            <details class="language-selector">
-                <summary class="menu-toggle">Elegir idioma</summary>
-                <option value="es">ES</option>
-                <option value="en">EN</option>
-            </details>
+            <option value="es">ES</option>
+            <option value="en">EN</option>
         </select>
         <!-- Login -->
         <section class="loginSection">
