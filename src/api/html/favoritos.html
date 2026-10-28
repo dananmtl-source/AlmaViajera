@@ -1,17 +1,24 @@
+
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Hojas de estilos -->
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/favoritos.css">
-    <link rel="icon" type="image/x-icon" href="../assets/img/AlmaViajeraLogo.png">
+
+    <!-- Icono de la web -->
+    <link rel="icon" type="image/x-icon" href="../../assets/images/AlmaViajeraLogo.png">
+
+    <!-- JavaScript para mostrar los países favoritos -->
     <script type="module" src="../../ui/favoritos.js"></script>
     <script src="../../utils/auth.js"></script>
 
 
-    <title>AlmaViajera</title>
+    <title>AlmaViajera | Mis favoritos</title>
 </head>
 
 <body class="gridBase">
@@ -20,7 +27,7 @@
     <header class="cabecera">
 
         <!-- Logo y nombre de la web -->
-        <a href="incio.html" class="identidad">
+        <a href="inicio.html" class="identidad">
             <img src="../../assets/images/AlmaViajeraLogo.png" alt="Logo de AlmaViajera">
             <span class="logo">AlmaViajera</span>
         </a>
@@ -39,57 +46,48 @@
 </a>
     </header>
 
+    </header>
 
-    <!-- Contenido -->
+    <!-- Contenido principal -->
     <main>
-        <!-- Idioma -->
+
+        <!-- Selector de idioma -->
         <select id="language-switcher" aria-label="Selección de idioma">
-            <details class="language-selector">
-                <summary class="menu-toggle">Elegir idioma</summary>
-                <option value="es">ES</option>
-                <option value="en">EN</option>
-            </details>
+            <option value="es" selected>ES</option>
+            <option value="en">EN</option>
         </select>
 
-        <!-- Paises favoritos-->
-
-
+        <!-- Sección de países favoritos -->
         <section id="paises-destacados">
 
-            <h2>Mis destinos Favoritos</h2>
+            <h2>Mis destinos favoritos</h2>
 
-            <!--JavaScript creará  aqui una tarjeta por cada pais-->
+            <!-- JavaScript creará aquí una tarjeta por cada país favorito -->
+            <div id="lista-favoritos"></div>
 
-            <div id="lista-favoritos">
-
-            </div>
-
-            <!--mensaje si no hay  favoritos-->
-
+            <!-- Mensaje que aparece cuando no hay favoritos -->
             <p id="mensaje-vacio">
-                Todavía no tienes paises favoritos
+                Todavía no tienes países favoritos.
             </p>
 
         </section>
 
     </main>
 
-
-
+    <!-- Pie de página -->
     <footer class="footer">
 
-        <nav>
-            <a href="https://instagram.com" target="_blank">Instagram</a>
+        <nav aria-label="Enlaces del pie de página">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
             <a href="#">Política de privacidad</a>
             <a href="#">Descubre</a>
             <a href="#">Ayuda</a>
-
         </nav>
 
         <p>© 2026 AlmaViajera.</p>
         <p>Hecho en Bilbao.</p>
-    </footer>
 
+    </footer>
 
 </body>
 

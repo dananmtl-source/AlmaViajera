@@ -1,7 +1,8 @@
-const rutaDatos = new URL("./assets/json/respuesta.json", document.currentScript.src);
+import { isInFavorites, toggleFavorite} from "./localStorage.js";
+
 
 async function cargarDatos() {
-    const respuesta = await fetch(rutaDatos);
+    const respuesta = await fetch("/src/assets/json/respuesta.json");
 
     if (!respuesta.ok) {
         throw new Error(`Error al cargar el JSON: ${respuesta.status}`);
@@ -24,8 +25,8 @@ async function cargarDestinos() {
         const datos = await cargarDatos();
         datos.forEach((pais) => {
             const option = document.createElement("option");
-            option.value = pais.nombre;
-            option.textContent = pais.nombre;
+            option.value = pais.name;
+            option.textContent = pais.name;
             select.appendChild(option);
         });
     } catch (error) {
@@ -45,25 +46,20 @@ async function buscar(event) {
     event?.preventDefault();
 
     const section = document.getElementById("resultadosDestinos");
-    const entrada = document.getElementById("busquedaPais");
     const select = document.getElementById("destino");
-    const consulta = entrada?.value ?? select?.value ?? "";
+    const consulta = select?.value ?? "";
 
     if (!section) return;
 
     section.replaceChildren();
 
-    if (!consulta.trim()) {
-        section.textContent = "Escribe un país, capital, idioma o moneda para buscar.";
-        return;
-    }
-
+    // Carga de ciudades
     try {
         const datos = await cargarDatos();
         const termino = normalizarTexto(consulta);
         const resultados = datos.filter((pais) => {
             const campos = [
-                pais.nombre,
+                pais.name,
                 pais.datos.commonName,
                 pais.datos.officialName,
                 pais.datos.nativeName,
@@ -87,9 +83,10 @@ async function buscar(event) {
             return;
         }
 
+        // Creación de estructura
         resultados.forEach((pais) => {
             const encabezado = document.createElement("h2");
-            encabezado.textContent = `${pais.datos.flagEmoji ?? ""} ${pais.nombre}`.trim();
+            encabezado.textContent = `${pais.datos.flagEmoji ?? ""} ${pais.name}`.trim();
             section.appendChild(encabezado);
 
             (pais.ciudades ?? []).forEach((ciudad) => {
@@ -100,8 +97,8 @@ async function buscar(event) {
                 const lugares = document.createElement("ul");
 
                 tarjeta.classList.add("destino");
-                tarjeta.setAttribute("aria-label", ciudad.nombre);
-                titulo.textContent = ciudad.nombre;
+                tarjeta.setAttribute("aria-label", ciudad.name);
+                titulo.textContent = ciudad.name;
                 descripcion.textContent = ciudad.descripcion;
                 temporada.textContent = `Mejor temporada para viajar: ${ciudad.mejorTemporada}`;
 
@@ -113,7 +110,36 @@ async function buscar(event) {
 
                 const lugaresTitulo = document.createElement("h4");
                 lugaresTitulo.textContent = "Qué visitar";
-                tarjeta.append(titulo, descripcion, temporada, lugaresTitulo, lugares);
+
+                const favoriteButton = document.createElement("button");
+                favoriteButton.setAttribute("id", ciudad.name);
+                const isFavorite = isInFavorites(ciudad.name);
+
+                if (isFavorite) {
+                    favoriteButton.classList.add("favorite");
+                    favoriteButton.textContent = "Unlike";
+                } else {
+                    favoriteButton.textContent = "Like";
+                }
+
+                favoriteButton.addEventListener("click", () => {
+                    const isFavorite = toggleFavorite(ciudad.name);
+                    if (isFavorite) {
+                        favoriteButton.classList.add("favorite");
+                        favoriteButton.textContent = "Unlike";
+                    } else {
+                        favoriteButton.classList.remove("favorite");
+                        favoriteButton.textContent = "Like";
+                    }
+                })
+                tarjeta.append(
+                    titulo,
+                    descripcion,
+                    temporada,
+                    lugaresTitulo,
+                    lugares,
+                    favoriteButton
+                );
                 section.appendChild(tarjeta);
             });
         });
@@ -125,7 +151,7 @@ async function buscar(event) {
 
 document.addEventListener("DOMContentLoaded", () => {
     cargarDestinos();
-    document
-        .getElementById("formularioBusqueda")
-        ?.addEventListener("submit", buscar);
+    document.getElementById("buscarPais")?.addEventListener("click", buscar);
 });
+
+export { buscar }
