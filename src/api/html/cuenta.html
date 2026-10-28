@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/cuenta.css">
-  <link rel="icon" type="image/x-icon" href="../assets/img/AlmaViajeraLogo.png">
+  <link rel="icon" type="image/x-icon" href="../../assets/images/AlmaViajeraLogo.png">
   <title>Mi cuenta | AlmaViajera</title>
   <script src="../../utils/auth.js"></script>
 </head>
@@ -49,6 +49,7 @@
         <p id="email-usuario" class="perfil-email"></p>
         <label for="foto" class="boton-secundario">Cambiar foto</label>
         <input type="file" id="foto" name="foto" accept="image/*" hidden>
+        <p id="mensaje-foto" class="form-message" role="status"></p>
       </div>
     </section>
 
@@ -65,8 +66,8 @@
         <label for="email">Correo electrónico</label>
         <input type="email" id="email" name="email" required>
 
-
         <button type="submit" class="boton-viaje">Guardar cambios</button>
+        <p id="mensaje-datos" class="form-message" role="status"></p>
       </form>
     </section>
 
@@ -89,6 +90,7 @@
 
 
         <button type="submit" class="boton-viaje">Guardar preferencias</button>
+        <p id="mensaje-preferencias" class="form-message" role="status"></p>
       </form>
     </section>
 
@@ -108,25 +110,27 @@
         <input type="password" id="password-repetir" name="password-repetir"
                autocomplete="new-password" minlength="8" required>
 
-        <p id="mensaje-password" role="alert"></p>
+        <p id="mensaje-password" class="form-message" role="status"></p>
         <button type="submit" class="boton-viaje">Cambiar contraseña</button>
       </form>
     </section>
+  </main>
 
-    <!-- Pie de página -->
-    <footer class="footer">
+  <!-- Pie de página -->
+  <footer class="footer">
 
-        <nav aria-label="Enlaces del pie de página">
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
-            <a href="#">Política de privacidad</a>
-            <a href="#">Descubre</a>
-            <a href="#">Ayuda</a>
-        </nav>
+    <nav aria-label="Enlaces del pie de página">
+      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="#">Política de privacidad</a>
+      <a href="#">Descubre</a>
+      <a href="#">Ayuda</a>
+    </nav>
 
-        <p>© 2026 AlmaViajera.</p>
-        <p>Hecho en Bilbao.</p>
+    <p>© 2026 AlmaViajera.</p>
+    <p>Hecho en Bilbao.</p>
 
-    </footer>
+  </footer>
 
+  <script type="module" src="../../ui/cuenta.js"></script>
 </body>
 </html>

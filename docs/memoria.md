@@ -35,9 +35,11 @@ dinámicamente. Cada tarjeta permite alternar el estado de favorito, que se
 persiste en el `localStorage` del navegador. La página de favoritos muestra las
 ciudades guardadas.
 
-La sección de cuenta está presente en la navegación, aunque su funcionalidad
-todavía es limitada. También hay archivos de traducción para español e inglés,
-pero el cambio de idioma no está implementado de forma integral.
+La sección de cuenta permite editar nombre, apellidos y correo; guardar
+preferencias de idioma y tema; cambiar la foto de perfil; y cambiar la
+contraseña de demostración. Estos cambios se almacenan localmente por usuario.
+También hay archivos de traducción para español e inglés, pero el cambio de
+idioma no está implementado de forma integral.
 
 ## 4. Tecnologías y organización
 
@@ -80,11 +82,12 @@ búsqueda dependa de la disponibilidad o del formato de la API externa.
   `respuesta.json`.
 - Los favoritos y la sesión se guardan en el navegador actual; no se comparten
   entre dispositivos.
+- El perfil, las preferencias, la imagen y la contraseña cambiada también se
+  guardan localmente y no se sincronizan entre dispositivos.
 - La utilidad de API externa no forma parte del flujo actual de búsqueda. Un
   despliegue no debe exponer claves privadas en JavaScript enviado al
   navegador; la integración debería realizarse desde un backend seguro.
-- El selector de idioma y la sección de cuenta requieren completar su
-  comportamiento.
+- El selector de idioma todavía no traduce integralmente la interfaz.
 
 ## 7. Mejoras futuras
 
@@ -95,8 +98,8 @@ Como continuación del proyecto, se propone:
    normalice las respuestas.
 3. Ampliar el catálogo y facilitar la actualización de los datos de destinos.
 4. Completar la internacionalización de textos y controles.
-5. Desarrollar la sección de cuenta y añadir pruebas automatizadas para los
-   flujos principales.
+5. Añadir pruebas automatizadas para los flujos principales y sincronización
+   de cuenta si se incorpora un backend.
 
 ## 8. Conclusión
 

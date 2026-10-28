@@ -6,10 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/api/css/style.css">
     <link rel="stylesheet" href="src/api/css/login.css">
-    <link rel="icon" type="image/x-icon" href="/assets/img/AlmaViajeraLogo.png">
-    <script src="src/index.js" defer></script>
-    <script src="src/ui/login.js" defer></script>
-    <script src="../../utils/auth.js"></script>
+    <link rel="icon" type="image/x-icon" href="src/assets/images/AlmaViajeraLogo.png">
+    <script type="module" src="src/ui/login.js"></script>
 
     <title>AlmaViajera</title>
 </head>
@@ -28,7 +26,6 @@
         <!-- Menú de navegación -->
         <nav class="menu" aria-label="Navegación principal">
             <a href="src/api/html/inicio.html">Inicio</a>
-            <a href="src/api/html/viajes.html">Viajes</a>
             <a href="src/api/html/favoritos.html">Favoritos</a>
             <a href="src/api/html/cuenta.html">Mi cuenta</a>
         </nav>
@@ -44,22 +41,17 @@
     <main>
         <!-- Idioma -->
         <select id="language-switcher" aria-label="Selección de idioma">
-            <details class="language-selector">
-                <summary class="menu-toggle">Elegir idioma</summary>
-                <option value="es">ES</option>
-                <option value="en">EN</option>
-            </details>
-        
-    
+            <option value="es" selected>ES</option>
+            <option value="en">EN</option>
         </select>
         <!-- Login -->
         <section class="loginSection">
             <form id="login">
                 <label for="usuario" class="loginUsuario"> Usuario: </label>
-                <input type="text" id="usuario" class="usuario" placeholder=" Indica tu usuario" />
+                <input type="text" id="usuario" class="usuario" placeholder=" Indica tu usuario" autocomplete="username" required />
 
-                <label for="contraseña" class="loginContraseña">Contraseña:</label>
-                <input type="password" id="contrasena" class="contraseña" placeholder="Indica tu contraseña" />
+                <label for="contrasena" class="loginContraseña">Contraseña:</label>
+                <input type="password" id="contrasena" class="contraseña" placeholder="Indica tu contraseña" autocomplete="current-password" required />
                 <p id="loginError" class="loginError" role="alert"></p>
                 <button class="loginbtn" type="submit">Iniciar sesión</button>
                 <div class="options-row">
