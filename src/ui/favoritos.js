@@ -2,7 +2,7 @@
 // Importamos las funciones que necesitamos para gestionar los favoritos.
 import {
     getFavoritesFromLocalStorage,
-
+    removeFavorite
 } from "../localStorage.js";
 
 
