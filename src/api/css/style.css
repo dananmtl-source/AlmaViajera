@@ -30,15 +30,17 @@
     --radio-borde: 8px;
 }
 
-/* Cabecera: diseño inicial para móviles */
 .cabecera {
     display: flex;
     flex-direction: column;
     align-items: center;
+     min-height: 100px;
     gap: var(--espacio-medio);
 
     padding: var(--espacio-medio);
     background-color: var(--color-blanco);
+    
+    
 }
 
 /* Logo y nombre de AlmaViajera */
@@ -73,6 +75,7 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: var(--espacio-pequeno);
+     
 }
 
 .menu a {
@@ -145,7 +148,7 @@
 
 .footer {
     padding: 1rem 0.1rem 0rem;
-      background: rgba(3, 3, 3, 0.5);
+    background: rgba(3, 3, 3, 0.5);
     color: white;
     text-align: center;
     font-family: var(--fuente-texto);

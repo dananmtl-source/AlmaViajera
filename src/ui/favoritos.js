@@ -1,54 +1,74 @@
 
-// Buscamos el contenedor donde mostraremos los países favoritos.
-const listaFavoritos = document.getElementById("lista-favoritos");
+// Importamos las funciones que necesitamos para gestionar los favoritos.
+import {
+    getFavoritesFromLocalStorage,
+} from "../localStorage.js";
 
-// Buscamos el mensaje que aparece cuando no hay favoritos.
+
+// Buscamos los elementos del HTML.
+const listaFavoritos = document.getElementById("lista-favoritos");
 const mensajeVacio = document.getElementById("mensaje-vacio");
 
-// Creamos un array con varios países de prueba.
-const paises = [
-    {
-        nombre: "Japón",
-        capital: "Tokio",
-        imagen: "https://flags.restcountries.com/v5/w320/jp.png"
-    },
-    {
-        nombre: "Italia",
-        capital: "Roma",
-         imagen: "https://flags.restcountries.com/v5/w320/it.png"
-    },
-    {
-        nombre: "Francia",
-        capital: "París",
-        imagen: "https://flags.restcountries.com/v5/w320/fr.png"
-    },
-    {
-        nombre: "Portugal",
-        capital: "Lisboa",
-        imagen: "https://flags.restcountries.com/v5/w320/pt.png"
+
+// Mostramos los países favoritos en pantalla.
+function mostrarFavoritos() {
+
+    // Recuperamos los países guardados en localStorage.
+    const favoritos = getFavoritesFromLocalStorage();
+
+    // Limpiamos las tarjetas anteriores.
+    listaFavoritos.replaceChildren();
+
+    // Si no hay favoritos, mostramos el mensaje y terminamos.
+    if (favoritos.length === 0) {
+        mensajeVacio.style.display = "block";
+        return;
     }
-];
 
-// Recorremos el array para mostrar cada país.
-paises.forEach(function(pais) {
+    // Si hay favoritos, ocultamos el mensaje.
+    mensajeVacio.style.display = "none";
 
-    // Creamos una tarjeta para el país.
-    const tarjeta = document.createElement("article");
+    // Creamos una tarjeta por cada país guardado.
+    favoritos.forEach(function (pais) {
 
-    // Añadimos el nombre y la capital.
-    tarjeta.innerHTML = `
-        <img src="${pais.imagen}" alt="Bandera de ${pais.nombre}">
-        <h3>${pais.nombre}</h3>
-        <p>Capital: ${pais.capital}</p>
-    `;
+        const tarjeta = document.createElement("article");
+        tarjeta.classList.add("caja-pais");
 
-    // Introducimos la tarjeta en el contenedor de favoritos.
-    listaFavoritos.appendChild(tarjeta);
-});
+        // Mostramos la bandera y el nombre del país.
+        const titulo = document.createElement("h3");
 
-// Ocultamos el mensaje porque ya hay países para mostrar.
-mensajeVacio.style.display = "none";
+        titulo.textContent =
+            `${pais.datos?.flagEmoji ?? ""} ${pais.nombre}`.trim();
 
-// Comprobamos cuántos países y tarjetas tenemos.
-console.log("Países del array:", paises.length);
-console.log("Tarjetas creadas:", listaFavoritos.children.length);
+        // Mostramos la capital.
+        const capital = document.createElement("p");
+
+        capital.textContent =
+            "Capital: " + (pais.datos?.capital || "No disponible");
+
+        // Creamos el botón para quitar el país de favoritos.
+        const botonEliminar = document.createElement("button");
+
+        botonEliminar.type = "button";
+        botonEliminar.textContent = "Quitar de favoritos";
+
+        // Eliminamos el país cuando se pulsa el botón.
+        botonEliminar.addEventListener("click", function () {
+
+            removeFavorite(pais);
+
+            // Actualizamos las tarjetas y el mensaje.
+            mostrarFavoritos();
+        });
+
+        // Añadimos los elementos a la tarjeta.
+        tarjeta.append(titulo, capital, botonEliminar);
+
+        // Mostramos la tarjeta en el HTML.
+        listaFavoritos.appendChild(tarjeta);
+    });
+}
+
+
+// Mostramos los favoritos al entrar en la página.
+mostrarFavoritos();
