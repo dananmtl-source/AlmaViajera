@@ -16,7 +16,7 @@
     <script src="../../utils/auth.js"></script>
 
 
-    <title>AlmaViajera | Mis favoritos</title>
+    <title>AlmaViajera | Tus destinos favoritos</title>
 </head>
 
 <body class="gridBase">
@@ -43,30 +43,38 @@
         </a>
     </header>
 
-    </header>
-
     <!-- Contenido principal -->
-    <main>
+    <main class="favoritos-main">
+        <div class="favoritos-tools">
+            <label class="sr-only" for="language-switcher">Idioma</label>
+            <select id="language-switcher" aria-label="Selección de idioma">
+                <option value="es" selected>ES</option>
+                <option value="en">EN</option>
+            </select>
+        </div>
 
-        <!-- Selector de idioma -->
-        <select id="language-switcher" aria-label="Selección de idioma">
-            <option value="es" selected>ES</option>
-            <option value="en">EN</option>
-        </select>
+        <section id="paises-destacados" aria-labelledby="favoritos-titulo">
+            <div class="favoritos-encabezado">
+                <div>
+                    <p class="favoritos-eyebrow">TU COLECCIÓN DE VIAJES</p>
+                    <h1 id="favoritos-titulo">Destinos que te esperan</h1>
+                    <p class="favoritos-descripcion">
+                        Guarda aquí esos lugares que ya forman parte de tu próximo viaje.
+                    </p>
+                </div>
+                <a class="explorar-link" href="inicio.html">＋ Explorar destinos</a>
+            </div>
 
-        <!-- Sección de países favoritos -->
-        <section id="paises-destacados">
-
-            <h2>Mis destinos favoritos</h2>
-
-            <!-- JavaScript creará aquí una tarjeta por cada país favorito -->
+            <p id="contador-favoritos" class="contador-favoritos" aria-live="polite"></p>
             <div id="lista-favoritos"></div>
+            <p id="error-favoritos" class="favoritos-error" role="alert" hidden></p>
 
-            <!-- Mensaje que aparece cuando no hay favoritos -->
-            <p id="mensaje-vacio">
-                Todavía no tienes países favoritos.
-            </p>
-
+            <div id="mensaje-vacio" class="estado-vacio" hidden>
+                <span class="estado-vacio-icono" aria-hidden="true">✦</span>
+                <h2>Tu próxima aventura empieza aquí</h2>
+                <p>Aún no has guardado destinos. Explora el mundo y crea tu lista de favoritos.</p>
+                <a class="explorar-link" href="inicio.html">Descubrir destinos</a>
+            </div>
         </section>
 
     </main>
@@ -85,9 +93,7 @@
         <p>Hecho en Bilbao.</p>
 
     </footer>
+    <script type="module" src="../../ui/favoritos.js"></script>
 
 </body>
-<script type="module" src="/src/ui/favoritos.js" defer></script>
-<script type="module" src="/src/localStorage.js" defer></script>
-
 </html>

@@ -7,13 +7,11 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/inicio.css">
     <link rel="icon" type="image/x-icon" href="../assets/img/AlmaViajeraLogo.png">
-    <script src="../../ui/paginator.js" defer></script>
-    <script src="../../index.js" defer></script>
     <script src="../../utils/auth.js"></script>
-    <title>AlmaViajera</title>
+    <title>AlmaViajera | Descubre tu próximo destino</title>
 </head>
 
-<body class="gridBase">
+<body class="gridBase pagina-inicio">
 
     <!-- Cabecera -->
     <header class="cabecera">
@@ -37,28 +35,46 @@
 
 
     <!-- Contenido -->
-    <main>
-        <!-- Idioma -->
-        <select id="language-switcher" aria-label="Selección de idioma">
-            <details class="language-selector">
-                <summary class="menu-toggle">Elegir idioma</summary>
-                <option value="es">ES</option>
+    <main class="inicio-main">
+        <div class="inicio-tools">
+            <label class="sr-only" for="language-switcher">Idioma</label>
+            <select id="language-switcher" aria-label="Selección de idioma">
+                <option value="es" selected>ES</option>
                 <option value="en">EN</option>
-            </details>
-        </select>
+            </select>
+        </div>
 
-        <!-- Buscador -->
-        <section>
-            <article class="buscador">
-                <select id="destino">
-                    <option value="">Selecciona un país</option>
-                </select>
-            </article>
-            <button id="buscarPais">Buscar</button>
+        <section class="inicio-hero" aria-labelledby="inicio-titulo">
+            <div class="inicio-hero-content">
+                <p class="inicio-eyebrow">ALMAVIAJERA · INSPIRACIÓN PARA TU PRÓXIMO VIAJE</p>
+                <h1 id="inicio-titulo">El mundo está más cerca de lo que imaginas.</h1>
+                <p class="inicio-intro">
+                    Explora nuevos lugares, encuentra tu próxima aventura y guarda
+                    los destinos que te hacen soñar.
+                </p>
+
+                <form class="busqueda-panel" id="formBusqueda">
+                    <label for="destino">¿Qué país te gustaría descubrir?</label>
+                    <div class="busqueda-controles">
+                        <select id="destino" required>
+                            <option value="">Selecciona un país</option>
+                        </select>
+                        <button id="buscarPais" type="submit">
+                            <span aria-hidden="true">⌕</span> Explorar destinos
+                        </button>
+                    </div>
+                </form>
+                <p class="inicio-nota">Tu próxima historia empieza con un destino.</p>
+            </div>
         </section>
 
-        <!-- Favoritos -->
-        <section id="resultadosDestinos" aria-live="polite" aria-label="Resultados de búsqueda">
+        <section class="resultados-seccion" aria-labelledby="resultados-titulo">
+            <div class="resultados-intro">
+                <p class="inicio-eyebrow">IDEAS PARA VIAJAR</p>
+                <h2 id="resultados-titulo">Lugares que dejan huella</h2>
+                <p>Descubre ciudades inolvidables y guarda tus favoritas para más tarde.</p>
+            </div>
+            <div id="resultadosDestinos" aria-live="polite" aria-label="Resultados de búsqueda"></div>
         </section>
     </main>
 
@@ -75,8 +91,6 @@
         <p>© 2026 AlmaViajera.</p>
         <p>Hecho en Bilbao.</p>
     </footer>
+    <script type="module" src="../../index.js"></script>
 </body>
-<script type="module" src="/src/index.js" defer></script>
-<script type="module" src="/src/localStorage.js" defer></script>
-
 </html>
