@@ -33,8 +33,10 @@ solicitudes `fetch`.
 3. **Favoritos** — los botones de las tarjetas guardan o eliminan ciudades en
    `localStorage`; [favoritos.html](../src/api/html/favoritos.html) muestra los
    elementos guardados.
-4. **Cuenta** — [cuenta.html](../src/api/html/cuenta.html) es una página
-   preparada para la sección de cuenta.
+4. **Cuenta** — [cuenta.html](../src/api/html/cuenta.html) permite editar el
+   perfil, guardar preferencias, cambiar la contraseña de demostración y
+   seleccionar una imagen de perfil. Los cambios se guardan en `localStorage`
+   por usuario.
 
 La sesión se almacena en `sessionStorage` o `localStorage`, según se marque
 «Recordarme». Los favoritos se guardan en `localStorage` del navegador actual.
@@ -69,7 +71,8 @@ navegador.
   alternar favoritos.
 - `src/ui/favoritos.js` genera la lista de favoritos.
 - `src/ui/login.js` comprueba el formulario de acceso contra el JSON de usuarios
-  de demostración.
+- `src/ui/cuenta.js` gestiona el perfil, las preferencias, la imagen y el cambio
+  local de contraseña.
 - `src/utils/auth.js` comprueba la sesión y gestiona el cierre de sesión.
 - `src/utils/functions.js` contiene utilidades para consultar un servicio
   externo de países. El flujo de búsqueda descrito arriba utiliza actualmente
@@ -80,6 +83,8 @@ navegador.
 - El inicio de sesión es solo demostrativo: los usuarios y sus contraseñas se
   descargan al navegador desde un archivo JSON. No debe utilizarse como sistema
   de autenticación real.
+- El perfil, la imagen, las preferencias y las contraseñas cambiadas se guardan
+  solo en el navegador; borrar sus datos locales los restablece.
 - Los datos de países y ciudades de la búsqueda dependen del contenido local
   de `src/assets/json/respuesta.json`.
 - Los archivos de traducción existen, pero la interfaz todavía no cambia de
