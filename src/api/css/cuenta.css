@@ -187,12 +187,68 @@
     outline-offset: 3px;
 }
 
-#mensaje-password:not(:empty) {
+.form-message:not(:empty) {
     padding: 1rem;
-    border: 1px solid #e6c6c3;
+    border: 1px solid #c9ddcd;
     border-radius: 12px;
+    background: #f2f8f2;
+    color: #315b45;
+}
+
+.form-message[data-tipo="error"]:not(:empty) {
+    border: 1px solid #e6c6c3;
     background: #fff7f6;
     color: #7e302d;
+}
+
+body.pagina-cuenta[data-theme="oscuro"] {
+    background: #172a30;
+}
+
+.pagina-cuenta[data-theme="oscuro"] .cuenta {
+    background: #172a30;
+    color: #e7eeee;
+}
+
+.pagina-cuenta[data-theme="oscuro"] .cuenta-intro h1,
+.pagina-cuenta[data-theme="oscuro"] .panel h2,
+.pagina-cuenta[data-theme="oscuro"] .perfil-nombre {
+    color: #d7e8dc;
+}
+
+.pagina-cuenta[data-theme="oscuro"] .cuenta-intro > p:last-child,
+.pagina-cuenta[data-theme="oscuro"] .perfil-email,
+.pagina-cuenta[data-theme="oscuro"] .formulario label {
+    color: #b6c7c7;
+}
+
+.pagina-cuenta[data-theme="oscuro"] .panel {
+    border-color: #35515a;
+    background: #213940;
+    color: #e7eeee;
+}
+
+.pagina-cuenta[data-theme="oscuro"] .formulario input,
+.pagina-cuenta[data-theme="oscuro"] .formulario select {
+    border-color: #48636a;
+    background: #172a30;
+    color: #e7eeee;
+}
+
+.pagina-cuenta[data-theme="oscuro"] .form-message:not(:empty) {
+    border-color: #43664c;
+    background: #263d2d;
+    color: #d7e8dc;
+}
+
+.pagina-cuenta[data-theme="oscuro"] .form-message[data-tipo="error"]:not(:empty) {
+    border-color: #8c5550;
+    background: #442d2d;
+    color: #ffd9d5;
+}
+
+.pagina-cuenta[data-theme="oscuro"] .footer {
+    background: #102127;
 }
 
 .footer {
